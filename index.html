@@ -15,32 +15,9 @@
 }
  /* BOTTONI */ .btn{padding:14px 28px;border-radius:30px;margin:10px;display:inline-block;text-decoration:none;font-weight:bold;transition:0.3s;} .btn-call{background:#d4af37;color:#111;} .btn-wa{background:#25D366;color:#fff;} .btn:hover{transform:translateY(-4px);box-shadow:0 10px 30px rgba(0,0,0,0.5);} /* SEZIONI */ .section{padding:80px 20px;text-align:center;} .section h2{font-size:3em;} /* SERVIZI */ .services{display:grid;grid-template-columns:repeat(4,1fr);gap:25px;margin-top:40px;} .card{ background:#111b33; padding:30px; border-radius:20px; text-align:left; transition:0.3s; border:1px solid rgba(212,175,55,0.2); } .card:hover{ transform:translateY(-8px); box-shadow:0 0 25px rgba(212,175,55,0.6); } .card h3{color:#f5d76e;} /* TESTO SERVIZI (NUOVO) */ .card p{ font-style:italic; color:#cfd6e6; line-height:1.6; } .card:hover p{ color:#ffffff; } /* RECENSIONI */ .reviews{ display:grid; grid-template-columns:repeat(3,1fr); gap:30px; margin-top:40px; } .review{ background:#0b162b; padding:30px; border-radius:20px; border:1px solid rgba(212,175,55,0.15); transition:0.3s; } .review:hover{ box-shadow:0 0 25px rgba(212,175,55,0.5); transform:translateY(-6px); } .stars{color:#f5d76e;margin-bottom:15px;font-size:18px;} .review p{ color:#cfd6e6; line-height:1.6; font-style:italic; } .review-footer{ display:flex; justify-content:space-between; margin-top:20px; font-size:14px; } .review-footer strong{color:#f5d76e;} .review-footer span{color:#7f8fb3;} /* CONTATTAMI */ .form{ max-width:500px; margin:0 auto; background:#111b33; padding:25px; border-radius:20px; } input,textarea{ width:100%; margin-bottom:10px; padding:12px; border-radius:8px; border:none; background:#0f1b33; color:white; } button{ width:100%; padding:14px; border:none; border-radius:10px; background:#25D366; color:white; transition:0.3s; } button:hover{ box-shadow:0 0 20px rgba(37,211,102,0.7); transform:translateY(-3px); }
 
- @media(max-width:600px){
+@media(max-width:900px){ .services{grid-template-columns:1fr;} .reviews{grid-template-columns:1fr;} .hero h1{font-size:2.5em;} } @media(max-width:600px){ .topbar{ padding:6px 10px; /* 👈 AGGIUNGI QUESTO */ } .nav{ display: grid; gap: 10px; text-align: center; align-items: center; } .nav span{ margin: 5px 0; display: block; } }
 
-  .topbar{
-    padding:8px 0;
-    display:flex;
-    justify-content:center; /* 👈 centra tutta la navbar */
-  }
 
-  .nav{
-    display:flex;
-    justify-content:center; /* 👈 centra gli elementi */
-    align-items:center;
-    gap:18px;
-    width:100%;
-    max-width:400px;        /* 👈 blocco centrato perfetto */
-    margin:0 auto;
-  }
-
-  .nav span{
-    margin:0;
-    font-size:14px;
-    white-space:nowrap;
-    text-align:center;
-  }
-
-}
 
 .privacy{
   display:flex;
