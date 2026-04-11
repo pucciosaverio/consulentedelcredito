@@ -1,4 +1,18 @@
-<!DOCTYPE html> <html lang="it"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Consulente del Credito | Puccio Saverio</title> <style> body{margin:0;font-family:'Segoe UI',sans-serif;background:#0b1220;color:#fff;scroll-behavior:smooth;} /* NAVBAR */ .topbar{ display:flex; justify-content:center; padding:15px 40px; background:#0f1b33; border-bottom:1px solid rgba(212,175,55,0.2); position:sticky; top:0; z-index:1000; } .nav span{ margin:0 20px; cursor:pointer; color:#aaa; transition:0.3s; font-weight:500; } .nav span.active {
+<!DOCTYPE html> <html lang="it"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Consulente del Credito | Puccio Saverio</title> <style> body{margin:0;font-family:'Segoe UI',sans-serif;background:#0b1220;color:#fff;scroll-behavior:smooth;} /* NAVBAR */ 
+
+.topbar{
+  display:flex;
+  justify-content:center;
+  align-items:center; /* 👈 IMPORTANTISSIMO */
+  padding:15px 40px;  /* 👈 IDENTICO ALLA PRIVACY */
+  background:#0f1b33;
+  border-bottom:1px solid rgba(212,175,55,0.2);
+  position:sticky;
+  top:0;
+  z-index:1000;
+}
+
+.nav span{ margin:0 20px; cursor:pointer; color:#aaa; transition:0.3s; font-weight:500; } .nav span.active {
   color:#f5d76e;
   text-shadow:0 0 10px #d4af37;
 }
@@ -24,51 +38,58 @@
 @media(max-width:600px){
 
   .topbar{
-    padding:10px;
+    padding:15px 10px;
   }
 
   .nav{
-    display:flex;              /* 👈 CAMBIATO */
-    justify-content:center;    /* 👈 CENTRATI */
+    display:flex;
+    justify-content:center;
     align-items:center;
-    gap:15px;                  /* spazio tra le voci */
-    flex-wrap:nowrap;          /* 👈 TUTTI IN UNA RIGA */
+    gap:15px;
+    flex-wrap:nowrap;
   }
 
   .nav span{
     margin:0;
-    font-size:14px;            /* leggermente più piccolo */
+    font-size:14px;
   }
 
 }
-
 .privacy{
   display:flex;
   align-items:center;
+  justify-content:flex-start; /* 👈 resta a sinistra */
   gap:10px;
   font-size:13px;
   color:#cfd6e6;
   margin:10px 0 15px 0;
-  line-height:1;           /* 👈 CAMBIA QUESTO */
 }
 
 .privacy input{
   width:16px;
   height:16px;
   cursor:pointer;
-  margin:0;                /* 👈 AGGIUNGI QUESTO */
-  transform:translateY(1px); /* 👈 micro-allineamento perfetto */
+  margin:0;
+  flex-shrink:0; /* 👈 NON si sposta mai */
+}
+
+.privacy span{
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap; /* 👈 permette a "Leggi informativa" di stare attaccato */
 }
 
 .privacy a{
   color:#25D366;
   text-decoration:none;
   margin-left:5px;
+  white-space:nowrap; /* 👈 evita che vada sotto */
 }
 
 .privacy a:hover{
   text-decoration:underline;
 }
+
 /* FOOTER */ .footer{ background:#081226; text-align:center; padding:20px; color:#7f8fb3; font-size:13px; border-top:1px solid rgba(212,175,55,0.2); margin-top:50px;} 
 .footer span{ opacity:0.8; } 
 
