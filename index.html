@@ -55,39 +55,35 @@
   }
 
 }
+
+
 .privacy{
   display:flex;
-  align-items:center;       /* 👈 CENTRATO VERTICALE */
-  justify-content:center;   /* 👈 CENTRATO ORIZZONTALE */
+  align-items:center;   /* 👈 CENTRA VERTICALMENTE */
   gap:10px;
   font-size:13px;
   color:#cfd6e6;
-  margin:15px 0;
-  text-align:center;
+  margin:10px 0 15px 0;
 }
+
 .privacy input{
   width:16px;
   height:16px;
-  margin-top:3px; /* 👈 allineato con il testo */
-  flex-shrink:0;
+  margin:0;
 }
 
-.privacy span{
-  display:flex;
-  align-items:center;
-  gap:5px;
-  flex-wrap:wrap; /* 👈 evita che vada a capo male */
-  justify-content:center;
-}
 .privacy a{
   color:#25D366;
   text-decoration:none;
   display:inline; /* 👈 resta attaccato */
 }
 
-.privacy a:hover{
-  text-decoration:underline;
+.privacy span{
+  position:relative;
+  top:-1px; /* 👈 ALZA LEGGERMENTE IL TESTO */
 }
+
+
 /* FOOTER */ .footer{ background:#081226; text-align:center; padding:20px; color:#7f8fb3; font-size:13px; border-top:1px solid rgba(212,175,55,0.2); margin-top:50px;} 
 .footer span{ opacity:0.8; } 
 
