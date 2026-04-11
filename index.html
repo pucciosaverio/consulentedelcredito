@@ -57,13 +57,14 @@
 }
 .privacy{
   display:flex;
-  align-items:flex-start; /* 👈 allinea in alto */
+  align-items:center;       /* 👈 CENTRATO VERTICALE */
+  justify-content:center;   /* 👈 CENTRATO ORIZZONTALE */
   gap:10px;
   font-size:13px;
   color:#cfd6e6;
-  margin:10px 0 15px 0;
+  margin:15px 0;
+  text-align:center;
 }
-
 .privacy input{
   width:16px;
   height:16px;
@@ -72,9 +73,12 @@
 }
 
 .privacy span{
-  line-height:1.4;
+  display:flex;
+  align-items:center;
+  gap:5px;
+  flex-wrap:wrap; /* 👈 evita che vada a capo male */
+  justify-content:center;
 }
-
 .privacy a{
   color:#25D366;
   text-decoration:none;
