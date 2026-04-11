@@ -57,8 +57,7 @@
 }
 .privacy{
   display:flex;
-  align-items:center;
-  justify-content:flex-start; /* 👈 resta a sinistra */
+  align-items:flex-start; /* 👈 allinea in alto */
   gap:10px;
   font-size:13px;
   color:#cfd6e6;
@@ -68,28 +67,23 @@
 .privacy input{
   width:16px;
   height:16px;
-  cursor:pointer;
-  margin:0;
-  flex-shrink:0; /* 👈 NON si sposta mai */
+  margin-top:3px; /* 👈 allineato con il testo */
+  flex-shrink:0;
 }
 
 .privacy span{
-  display:flex;
-  align-items:center;
-  flex-wrap:wrap; /* 👈 permette a "Leggi informativa" di stare attaccato */
+  line-height:1.4;
 }
 
 .privacy a{
   color:#25D366;
   text-decoration:none;
-  margin-left:5px;
-  white-space:nowrap; /* 👈 evita che vada sotto */
+  display:inline; /* 👈 resta attaccato */
 }
 
 .privacy a:hover{
   text-decoration:underline;
 }
-
 /* FOOTER */ .footer{ background:#081226; text-align:center; padding:20px; color:#7f8fb3; font-size:13px; border-top:1px solid rgba(212,175,55,0.2); margin-top:50px;} 
 .footer span{ opacity:0.8; } 
 
@@ -104,7 +98,7 @@
 <label class="privacy">
   <input type="checkbox" id="privacy">
   <span>
-    Acconsento al trattamento dei miei dati personali
+    Accetta la privacy
     <a href="privacy.html" target="_blank">Leggi informativa</a>
   </span>
 </label>
@@ -222,7 +216,7 @@ Ora: ${ora}`;
   window.open(url, "_blank");
 }
 
-</script> <footer class="footer"> <span>© 2026 Saverio Puccio - Consulente del Credito - P.I. 01279950313</span> </footer> </body> </html>
+</script> <footer class="footer"> <span>© 2026 Saverio Puccio - P.I. 01279950313</span> </footer> </body> </html>
 
 
 
