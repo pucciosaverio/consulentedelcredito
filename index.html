@@ -255,8 +255,14 @@ Ora: ${ora}`;
 
   window.open(url, "_blank");
   
-// RESET FORM 🔥
+// reset
 document.getElementById("form").reset();
+
+// piccolo delay per sicurezza mobile
+setTimeout(() => {
+  window.open(url, "_blank");
+}, 200);
+
   
 }
 
