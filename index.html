@@ -259,16 +259,14 @@ let ip = await fetch("https://api.ipify.org?format=json")
     // 👉 CREA MESSAGGIO WHATSAPP
     let now = new Date();
   
-    let text = `Nuova richiesta:%0A
-    
-  Nome: ${name}%0A
-  Cognome: ${surname}%0A
-  Telefono: ${phone}%0A
-  Email: ${email}%0A
-  Messaggio: ${message}%0A
-  
-  Data: ${now.toLocaleDateString('it-IT')}%0A
-  Ora: ${now.toLocaleTimeString('it-IT')}`;
+   let text = `Nuova richiesta:\n\n
+Nome: ${name}\n
+Cognome: ${surname}\n
+Telefono: ${phone}\n
+Email: ${email}\n
+Messaggio: ${message}\n\n
+Data: ${now.toLocaleDateString('it-IT')}\n
+Ora: ${now.toLocaleTimeString('it-IT')}`;
   
     let url = "https://wa.me/393515104896?text=" + encodeURIComponent(text);
   
