@@ -260,11 +260,13 @@ let ip = await fetch("https://api.ipify.org?format=json")
     let now = new Date();
   
     let text = `Nuova richiesta:%0A
+    
   Nome: ${name}%0A
   Cognome: ${surname}%0A
   Telefono: ${phone}%0A
   Email: ${email}%0A
   Messaggio: ${message}%0A
+  
   Data: ${now.toLocaleDateString('it-IT')}%0A
   Ora: ${now.toLocaleTimeString('it-IT')}`;
   
