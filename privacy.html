@@ -19,13 +19,25 @@ body{
 .topbar{
   display:flex;
   justify-content:center;
-  align-items:center;
+  align-items:center; /* 👈 aggiungi questo */
   padding:15px 40px;
   background:#0f1b33;
   border-bottom:1px solid rgba(212,175,55,0.2);
   position:sticky;
   top:0;
-  z-index:1000;
+}
+
+.topbar a{
+  color:#aaa;
+  text-decoration:none;
+  font-weight:500;
+  font-size:16px;
+  transition:0.3s;
+}
+
+.topbar a:hover{
+  color:#f5d76e;
+  text-shadow:0 0 10px #d4af37;
 }
 
 .nav span{
@@ -34,19 +46,33 @@ body{
   color:#aaa;
   transition:0.3s;
   font-weight:500;
-  font-family:'Segoe UI', sans-serif;
   font-size:16px;
-  letter-spacing:0.5px;
-}
-  
-.nav span.active{
-  color:#f5d76e;
-  text-shadow:0 0 10px #d4af37;
 }
 
 .nav span:hover{
   color:#f5d76e;
   text-shadow:0 0 10px #d4af37;
+}
+
+@media(max-width:600px){
+
+  .topbar{
+    padding:15px 10px;
+  }
+
+  .nav{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:15px;
+    flex-wrap:nowrap;
+  }
+
+  .nav span{
+    margin:0;
+    font-size:14px;
+  }
+
 }
 
 /* CONTENUTO */
@@ -81,27 +107,6 @@ p{
   border-top:1px solid rgba(212,175,55,0.2);
   margin-top:50px;
 }
-  
-  @media(max-width:600px){
-  
-    .topbar{
-      padding:15px 10px;
-    }
-  
-    .nav{
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      gap:15px;
-      flex-wrap:nowrap;
-    }
-  
-    .nav span{
-      margin:0;
-      font-size:14px;
-    }
-  
-  }
   
 </style>
 
