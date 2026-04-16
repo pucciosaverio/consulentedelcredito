@@ -10,32 +10,20 @@ body{
   margin:0;
   font-family:'Segoe UI',sans-serif;
   background:#0b1220;
-  color:#fff;
+  color:#cfd6e6;
+  line-height:1.7;
 }
 
-/* NAVBAR (UGUALE ALLA HOME) */
+/* NAVBAR */
 .topbar{
   display:flex;
   justify-content:center;
-  align-items:center; /* 👈 aggiungi questo */
+  align-items:center;
   padding:15px 40px;
   background:#0f1b33;
   border-bottom:1px solid rgba(212,175,55,0.2);
   position:sticky;
   top:0;
-}
-
-.topbar a{
-  color:#aaa;
-  text-decoration:none;
-  font-weight:500;
-  font-size:16px;
-  transition:0.3s;
-}
-
-.topbar a:hover{
-  color:#f5d76e;
-  text-shadow:0 0 10px #d4af37;
 }
 
 .nav span{
@@ -44,7 +32,6 @@ body{
   color:#aaa;
   transition:0.3s;
   font-weight:500;
-  font-size:16px;
 }
 
 .nav span:hover{
@@ -52,58 +39,40 @@ body{
   text-shadow:0 0 10px #d4af37;
 }
 
-@media(max-width:600px){
-
-  .topbar{
-    padding:15px 10px;
-  }
-
-  .nav{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:15px;
-    flex-wrap:nowrap;
-  }
-
-  .nav span{
-    margin:0;
-    font-size:14px;
-  }
-
-}
-
-/* PRIVACY */
-#privacy-policy{
-  padding:80px 20px;
-  max-width:800px;
+/* CONTENUTO */
+.container{
+  max-width:900px;
   margin:auto;
-  text-align:left;
+  padding:80px 20px;
 }
 
-#privacy-policy h2{
+h1{
   font-size:2.5em;
   color:#f5d76e;
-  margin-bottom:30px;
+  margin-bottom:10px;
 }
 
-#privacy-policy h3{
+h3{
   color:#f5d76e;
   margin-top:30px;
-  margin-bottom:10px;
-  font-size:1.2em;
 }
 
-#privacy-policy p{
-  color:#cfd6e6;
-  line-height:1.7;
+p{
   font-size:14px;
 }
 
-/* FOOTER */ .footer{ background:#081226; text-align:center; padding:20px; color:#7f8fb3; font-size:13px; border-top:1px solid rgba(212,175,55,0.2); margin-top:50px;} 
-.footer span{ opacity:0.8; } 
-
+/* FOOTER */
+.footer{
+  background:#081226;
+  text-align:center;
+  padding:20px;
+  color:#7f8fb3;
+  font-size:13px;
+  border-top:1px solid rgba(212,175,55,0.2);
+  margin-top:50px;
+}
 </style>
+
 </head>
 
 <body>
@@ -114,109 +83,64 @@ body{
     <span onclick="window.location.href='index.html'">Home</span>
   </div>
 </div>
-
-<!-- PRIVACY -->
-<section id="privacy-policy">
   
-</head>
-
-<body>
-
-<div class="container">
-
 <h1>Privacy Policy</h1>
 
-<p class="small">
-Ai sensi del Regolamento (UE) 2016/679 (GDPR)
-</p>
+  
+<!-- CONTENUTO -->
+<div class="container">
 
-<h3>1. Titolare del trattamento</h3>
-<p>
-Il Titolare del trattamento dei dati è:<br><br>
-<strong>Saverio Puccio</strong><br>
-Consulente del Credito<br>
-P.IVA: 01279950313<br>
-Cellulare: 3515104896<br>
-Email: ...
-</p>
-
-<h3>2. Tipologia di dati raccolti</h3>
-<p>
-Il sito raccoglie i seguenti dati personali forniti volontariamente dall’utente:
-<br>• Nome e cognome
-<br>• Numero di telefono
-<br>• Indirizzo email
-<br>• Contenuto del messaggio inviato tramite form
-<br>• Indirizzo IP dell’utente
-<br>• Data e ora dell’invio della richiesta
-<br>• Dati tecnici di navigazione essenziali
-</p>
-
-<h3>3. Finalità del trattamento</h3>
-<p>
-I dati personali sono trattati per le seguenti finalità:
-<br>• Rispondere alle richieste inviate tramite il form di contatto
-<br>• Fornire informazioni relative a servizi di consulenza creditizia
-<br>• Gestire comunicazioni via telefono, email o WhatsApp
-<br>• Prevenzione di abusi e attività fraudolente
-</p>
-
-<h3>4. Base giuridica del trattamento</h3>
-<p>
-Il trattamento dei dati personali si basa su:
-<br>• Il consenso espresso dell’interessato mediante compilazione e invio volontario del form
-<br>• L’esecuzione di misure precontrattuali richieste dall’utente
-<br><br>
-Il conferimento dei dati è facoltativo, ma necessario per poter ricevere risposta alle richieste.
-</p>
-
-<h3>5. Modalità di trattamento</h3>
-<p>
-I dati sono trattati mediante strumenti informatici e telematici, nel rispetto dei principi di sicurezza, integrità e riservatezza previsti dalla normativa vigente.
-</p>
-
-<h3>6. Conservazione dei dati</h3>
-<p>
-I dati personali sono conservati per il tempo strettamente necessario a gestire la richiesta e comunque non oltre 24 mesi, salvo obblighi di legge diversi o instaurazione di un rapporto contrattuale.
-</p>
-
-<h3>7. Comunicazione e trasferimento dei dati</h3>
-<p>
-I dati non vengono ceduti a terzi per finalità commerciali.
-<br><br>
-I dati personali raccolti possono essere trattati tramite strumenti digitali e servizi di terze parti, tra cui Supabase per l’archiviazione dei dati e WhatsApp (servizio fornito da Meta Platforms Inc.) per la gestione delle comunicazioni. L’utilizzo di tali servizi può comportare il trasferimento dei dati anche al di fuori dell’Unione Europea, secondo le relative condizioni di utilizzo e misure di protezione adottate dai fornitori.</p>
-
-<h3>8. Diritti dell’interessato</h3>
-<p>
-L’utente può esercitare i diritti previsti dagli articoli 15-22 del GDPR, tra cui:
-<br>• Accesso ai dati
-<br>• Rettifica o cancellazione
-<br>• Limitazione del trattamento
-<br>• Opposizione al trattamento
-<br>• Revoca del consenso
-</p>
-
-<h3>9. Sicurezza dei dati</h3>
-<p>
-Il Titolare adotta misure tecniche e organizzative adeguate per proteggere i dati personali da accessi non autorizzati, perdita o divulgazione.
-</p>
-
-<h3>10. Contatti</h3>
-<p>
-Per qualsiasi richiesta relativa alla privacy:<br>
-<strong>Saverio Puccio</strong><br>
-Cell: 3515104896
-</p>
-
-</div>
-
-</body>
-</section>
-
-<!-- FOOTER -->
-<div class="footer">
-  © 2026 Saverio Puccio - P.IVA 01279950313
-</div>
-
+<p class="small"> Ai sensi del Regolamento (UE) 2016/679 (GDPR) </p> 
+  <h3>1. Titolare del trattamento</h3> 
+  <p> Il Titolare del trattamento dei dati è:<br>
+    <br> <strong>Saverio Puccio</strong>
+    <br> Consulente del Credito
+    <br> P.IVA: 01279950313
+    <br> Cellulare: 3515104896
+    <br> Email: ... </p> 
+    <h3>2. Tipologia di dati raccolti
+    </h3> <p> Il sito raccoglie i seguenti dati personali forniti volontariamente dall’utente: 
+      <br>• Nome e cognome 
+      <br>• Numero di telefono 
+      <br>• Indirizzo email 
+      <br>• Contenuto del messaggio inviato tramite form 
+      <br>• Indirizzo IP dell’utente 
+      <br>• Data e ora dell’invio della richiesta 
+      <br>• Dati tecnici di navigazione essenziali 
+    </p> 
+  <h3>3. Finalità del trattamento</h3> 
+  <p> I dati personali sono trattati per le seguenti finalità: 
+    <br>• Rispondere alle richieste inviate tramite il form di contatto 
+    <br>• Fornire informazioni relative a servizi di consulenza creditizia 
+    <br>• Gestire comunicazioni via telefono, email o WhatsApp 
+    <br>• Prevenzione di abusi e attività fraudolente </p> 
+  <h3>4. Base giuridica del trattamento</h3> 
+  <p> Il trattamento dei dati personali si basa su: 
+    <br>• Il consenso espresso dell’interessato mediante compilazione e invio volontario del form 
+    <br>• L’esecuzione di misure precontrattuali richieste dall’utente 
+    <br>
+    <br> Il conferimento dei dati è facoltativo, ma necessario per poter ricevere risposta alle richieste. </p> 
+  <h3>5. Modalità di trattamento</h3> 
+  <p> I dati sono trattati mediante strumenti informatici e telematici, nel rispetto dei principi di sicurezza, integrità e riservatezza previsti dalla normativa vigente. </p> 
+  <h3>6. Conservazione dei dati</h3> 
+  <p> I dati personali sono conservati per il tempo strettamente necessario a gestire la richiesta e comunque non oltre 24 mesi, salvo obblighi di legge diversi o instaurazione di un rapporto contrattuale. </p> 
+  <h3>7. Comunicazione e trasferimento dei dati</h3> 
+  <p> I dati non vengono ceduti a terzi per finalità commerciali. <br>
+    <br> I dati personali raccolti possono essere trattati tramite strumenti digitali e servizi di terze parti, tra cui Supabase per l’archiviazione dei dati e WhatsApp (servizio fornito da Meta Platforms Inc.) per la gestione delle comunicazioni. L’utilizzo di tali servizi può comportare il trasferimento dei dati anche al di fuori dell’Unione Europea, secondo le relative condizioni di utilizzo e misure di protezione adottate dai fornitori.</p> <h3>8. Diritti dell’interessato</h3> 
+  <p> L’utente può esercitare i diritti previsti dagli articoli 15-22 del GDPR, tra cui:
+    <br>• Accesso ai dati 
+    <br>• Rettifica o cancellazione 
+    <br>• Limitazione del trattamento 
+    <br>• Opposizione al trattamento 
+    <br>• Revoca del consenso </p> 
+  <h3>9. Sicurezza dei dati</h3> 
+  <p> Il Titolare adotta misure tecniche e organizzative adeguate per proteggere i dati personali da accessi non autorizzati, perdita o divulgazione. </p> 
+  <h3>10. Contatti</h3> <p> Per qualsiasi richiesta relativa alla privacy:
+    <br> <strong>Saverio Puccio</strong>
+    <br> Cell: 3515104896 </p> 
+</div> 
+</body> 
+</section> <!-- FOOTER -->
+  <div class="footer"> © 2026 Saverio Puccio - P.IVA 01279950313 </div>
 </body>
 </html>
