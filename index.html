@@ -270,7 +270,7 @@ let ip = await fetch("https://api.ipify.org?format=json")
   Data: ${now.toLocaleDateString('it-IT')}%0A
   Ora: ${now.toLocaleTimeString('it-IT')}`;
   
-    let url = "https://wa.me/393515104896?text=" + text;
+    let url = "https://wa.me/393515104896?text=" + encodeURIComponent(text);
   
    setTimeout(() => {
     window.open(url, "_blank");
@@ -279,7 +279,6 @@ let ip = await fetch("https://api.ipify.org?format=json")
   // reset
   document.getElementById("form").reset();
   
-    
   }
   
   </script> <footer class="footer"> <span>© 2026 Saverio Puccio - P.IVA 01279950313</span> </footer> </body> </html>
