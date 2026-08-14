@@ -1417,8 +1417,7 @@
     }
   </style>
 
-  <script src="https://unpkg.com/@supabase/supabase-js">
-  </script>
+  <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
 
 </head>
 
@@ -1977,17 +1976,21 @@
   ========================= -->
 
   <script>
-    const supabaseUrl =
-      "https://vtojhpjjqnznwkclmedj.supabase.co";
+    // =========================
+    // SUPABASE CONNECTION - FIXED
+    // =========================
 
-    const supabaseKey =
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ2dG9qaHBqcXFuen53a2NsbWVkaiIsInJlZiI6InZ0b2pocGpqcW56bndrY2xtbWRqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzYzNTM1OTIsImV4cCI6MjA5MTkyOTU5Mn0.gzWiBvGoGc8YB8v4VtYhrwLfCZv-voQ8zD_VnlXJZDE";
+    const supabaseUrl = "https://vtojhpjjqnznwkclmedj.supabase.co";
+    const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ2dG9qaHBqcXFuen53a2NsbWVkaiIsInJlZiI6InZ0b2pocGpqcW56bndrY2xtbWRqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzYzNTM1OTIsImV4cCI6MjA5MTkyOTU5Mn0.gzWiBvGoGc8YB8v4VtYhrwLfCZv-voQ8zD_VnlXJZDE";
 
-    const supabaseClient =
-      supabase.createClient(
-        supabaseUrl,
-        supabaseKey
-      );
+    // Crea il client Supabase in modo sicuro
+    let supabaseClient;
+    try {
+        supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
+        console.log("✅ Supabase client creato con successo");
+    } catch (e) {
+        console.error("❌ Errore nella creazione del client Supabase:", e);
+    }
 
 
     /* =========================
@@ -2175,19 +2178,34 @@
         .then(d => d.ip);
 
 
-      await supabaseClient
-        .from("contatti")
-        .insert([
-          {
-            name,
-            surname,
-            phone,
-            email,
-            message,
-            consente: true,
-            ip
-          }
-        ]);
+      // Inserisci i dati in Supabase con gestione errori
+      try {
+        const { error } = await supabaseClient
+          .from("contatti")
+          .insert([
+            {
+              name,
+              surname,
+              phone,
+              email,
+              message,
+              consente: true,
+              ip
+            }
+          ]);
+
+        if (error) {
+          console.error("Errore insert Supabase:", error);
+          alert("Errore nel salvataggio dei dati. Riprova.");
+          return;
+        }
+
+        console.log("✅ Dati salvati su Supabase con successo");
+      } catch (e) {
+        console.error("Eccezione durante l'insert:", e);
+        alert("Errore di connessione al database. Riprova.");
+        return;
+      }
 
 
       let now =
@@ -3166,19 +3184,34 @@
         .then(d => d.ip);
 
 
-      await supabaseClient
-        .from("contatti")
-        .insert([
-          {
-            name,
-            surname,
-            phone,
-            email,
-            message,
-            consente: true,
-            ip
-          }
-        ]);
+      // Inserisci i dati in Supabase con gestione errori
+      try {
+        const { error } = await supabaseClient
+          .from("contatti")
+          .insert([
+            {
+              name,
+              surname,
+              phone,
+              email,
+              message,
+              consente: true,
+              ip
+            }
+          ]);
+
+        if (error) {
+          console.error("Errore insert Supabase:", error);
+          alert("Errore nel salvataggio dei dati. Riprova.");
+          return;
+        }
+
+        console.log("✅ Dati salvati su Supabase con successo");
+      } catch (e) {
+        console.error("Eccezione durante l'insert:", e);
+        alert("Errore di connessione al database. Riprova.");
+        return;
+      }
 
 
       let now =
@@ -3310,19 +3343,34 @@
         .then(d => d.ip);
 
 
-      await supabaseClient
-        .from("contatti")
-        .insert([
-          {
-            name,
-            surname,
-            phone,
-            email,
-            message,
-            consente: true,
-            ip
-          }
-        ]);
+      // Inserisci i dati in Supabase con gestione errori
+      try {
+        const { error } = await supabaseClient
+          .from("contatti")
+          .insert([
+            {
+              name,
+              surname,
+              phone,
+              email,
+              message,
+              consente: true,
+              ip
+            }
+          ]);
+
+        if (error) {
+          console.error("Errore insert Supabase:", error);
+          alert("Errore nel salvataggio dei dati. Riprova.");
+          return;
+        }
+
+        console.log("✅ Dati salvati su Supabase con successo");
+      } catch (e) {
+        console.error("Eccezione durante l'insert:", e);
+        alert("Errore di connessione al database. Riprova.");
+        return;
+      }
 
 
       let now =
