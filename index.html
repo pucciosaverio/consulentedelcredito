@@ -1,301 +1,3473 @@
-<!DOCTYPE html> <html lang="it"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Consulente del Credito | Saverio Puccio</title> <style> body{margin:0;font-family:'Segoe UI',sans-serif;background:#0b1220;color:#fff;scroll-behavior:smooth;} /* NAVBAR */ .topbar{ display:flex; justify-content:center; align-items:center; /* 👈 IMPORTANTISSIMO */ padding:15px 40px; /* 👈 IDENTICO ALLA PRIVACY */ background:#0f1b33; border-bottom:1px solid rgba(212,175,55,0.2); position:sticky; top:0; z-index:1000; } .nav span{ margin:0 20px; cursor:pointer; color:#aaa; transition:0.3s; font-weight:500; } .nav span.active { color:#f5d76e; text-shadow:0 0 10px #d4af37; } .nav span:hover{ color:#f5d76e; text-shadow:0 0 10px #d4af37; } /* HERO */ .hero{ text-align:center; padding:190px 20px; background:radial-gradient(circle,#14264a,#0b1220); } .hero h1{font-size:4em;} @keyframes glow { 0% { text-shadow: 0 0 5px #f5d76e; } 50% { text-shadow: 0 0 20px #d4af37, 0 0 40px rgba(212,175,55,0.8); } 100% { text-shadow: 0 0 5px #f5d76e; } } /* HERO */ .hero{ text-align:center; padding:190px 20px; background:radial-gradient(circle,#14264a,#0b1220); } .hero h1{font-size:4em;} @keyframes glow { 0% { text-shadow: 0 0 5px #f5d76e; } 50% { text-shadow: 0 0 20px #d4af37, 0 0 40px rgba(212,175,55,0.8); } 100% { text-shadow: 0 0 5px #f5d76e; } } .subtitle{ color:#f5d76e; letter-spacing:3px; animation: glow 2s infinite ease-in-out; } /* BOTTONI */ .btn{padding:14px 28px;border-radius:30px;margin:10px;display:inline-block;text-decoration:none;font-weight:bold;transition:0.3s;} .btn-call{background:#d4af37;color:#111;} .btn-wa{background:#25D366;color:#fff;} .btn:hover{transform:translateY(-4px);box-shadow:0 10px 30px rgba(0,0,0,0.5);} /* SEZIONI */ .section{padding:80px 20px;text-align:center;} .section h2{font-size:3em;} /* SERVIZI */ .services{display:grid;grid-template-columns:repeat(4,1fr);gap:25px;margin-top:40px;} .card{ background:#111b33; padding:30px; border-radius:20px; text-align:left; transition:0.3s; border:1px solid rgba(212,175,55,0.2); } .card:hover{ transform:translateY(-8px); box-shadow:0 0 25px rgba(212,175,55,0.6); } .card h3{color:#f5d76e;} /* TESTO SERVIZI (NUOVO) */ .card p{ font-style:italic; color:#cfd6e6; line-height:1.6; } .card:hover p{ color:#ffffff; } /* RECENSIONI */ .reviews{ display:grid; grid-template-columns:repeat(3,1fr); gap:30px; margin-top:40px; } .review{ background:#0b162b; padding:30px; border-radius:20px; border:1px solid rgba(212,175,55,0.15); transition:0.3s; } .review:hover{ box-shadow:0 0 25px rgba(212,175,55,0.5); transform:translateY(-6px); } .stars{color:#f5d76e;margin-bottom:15px;font-size:18px;} .review p{ color:#cfd6e6; line-height:1.6; font-style:italic; } .review-footer{ display:flex; justify-content:space-between; margin-top:20px; font-size:14px; } .review-footer strong{color:#f5d76e;} .review-footer span{color:#7f8fb3;} /* CONTATTAMI */ .form{ max-width:500px; width:calc(100% - 40px); margin:0 auto; background:#111b33; padding:25px; border-radius:20px; } input,textarea{ width:100%; margin-bottom:10px; padding:12px; border-radius:8px; border:none; background:#0f1b33; color:white; box-sizing: border-box; /* 🔥 QUESTA RISOLVE */ } textarea{ resize: none; /* BLOCCA il ridimensionamento */ } button{ width:100%; padding:14px; border:none; border-radius:10px; background:#25D366; color:white; transition:0.3s; } button:hover{ transform:translateY(-3px);
-  box-shadow:0 0 20px rgba(0,0,0,0.3);
-  opacity:0.9; } @media(max-width:900px){ .services{grid-template-columns:1fr;} .reviews{grid-template-columns:1fr;} .hero h1{font-size:2.5em;} } @media(max-width:600px){ .topbar{ padding:15px 10px; } .nav{ display:flex; justify-content:center; align-items:center; gap:15px; flex-wrap:nowrap; } .nav span{ margin:0; font-size:14px; } } .privacy{ display:flex; align-items:center; /* 👈 CENTRA VERTICALMENTE */ gap:10px; font-size:13px; color:#cfd6e6; margin:10px 0 15px 0; } .privacy input{ width:16px; height:16px; margin:0; } .privacy a{ color:#25D366; text-decoration:none; display:inline; /* 👈 resta attaccato */ } .privacy span{ position:relative; top:-1px; /* 👈 ALZA LEGGERMENTE IL TESTO */ } /* FOOTER */ .footer{ background:#081226; text-align:center; padding:20px; color:#7f8fb3; font-size:13px; border-top:1px solid rgba(212,175,55,0.2); margin-top:50px;} .footer span{ opacity:0.8; } #contattami { padding-top: -120px; padding-bottom: 20px } .btn-fb{ background:#1877F2; color:#fff; } .contact-wrapper{ display:flex; gap:30px; justify-content:center; align-items:flex-start; flex-wrap:wrap; } .calc-box h3{ color:#f5d76e; text-align:center; margin-bottom:20px; } .result{ margin-top:20px; padding:15px; border-radius:10px; background:#0f1b33; text-align:center; font-size:18px; color:#f5d76e; } /* Chrome, Safari, Edge */ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; } /* Firefox */ input[type=number] { -moz-appearance: textfield; } select{
-  width:100%;
-  margin-bottom:10px;
-  padding:12px;
-  border-radius:8px;
-  border:none;
-  background:#0f1b33;
-  color:white;
-  box-sizing: border-box;
+<!DOCTYPE html>
+<html lang="it">
 
-  appearance:none;        /* toglie stile di default */
-  -webkit-appearance:none;
-  -moz-appearance:none;
+<head>
 
-  cursor:pointer;
-}
+  <meta charset="UTF-8">
 
-/* freccia custom */
-select {
-  background-image: linear-gradient(45deg, transparent 50%, #f5d76e 50%),
-                    linear-gradient(135deg, #f5d76e 50%, transparent 50%);
-  background-position: calc(100% - 18px) calc(1em + 2px),
-                       calc(100% - 13px) calc(1em + 2px);
-  background-size: 5px 5px, 5px 5px;
-  background-repeat: no-repeat;
-  padding-right:35px;
-}
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-/* opzioni */
-option{
-  background:#111b33;
-  color:white;
-}
+  <title>Consulente del Credito | Saverio Puccio</title>
 
-.contact-wrapper{
-  display:flex;
-  gap:30px;
-  justify-content:center;
-  align-items:stretch; /* 🔥 fondamentale */
-  flex-wrap:wrap;
-}
+  <style>
+    /* =========================
+       RESET & BASE
+    ========================= */
 
-.contact-wrapper .form{
-  flex:1;
-  min-width:300px;
-  display:flex;
-  flex-direction:column;
-}
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-.calc-box{
-  flex:1;
-  min-width:300px;
-  display:flex;
-  flex-direction:column;
-}
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #0b1220;
+      color: #fff;
+      scroll-behavior: smooth;
+    }
 
-.calc-buttons{
-  display:flex;
-  gap:15px;
-  margin-top:15px;
-}
+    /* =========================
+       TOPBAR
+    ========================= */
 
-.calc-buttons a{
-  flex:1;
-  text-align:center;
-  padding:14px 0;
-  font-weight:bold;
-  text-decoration:none;
-  transition:0.3s;
-}
+    .topbar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 15px 40px;
+      background: #0f1b33;
+      border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
 
-/* GIALLO CHIAMA */
-.calc-buttons .btn-call{
-  background:#d4af37;
-  color:#111;
-}
+    .nav {
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
 
-/* BLU FACEBOOK */
-.calc-buttons .btn-fb{
-  background:#1877F2;
-  color:#fff;
-}
+    .nav span {
+      cursor: pointer;
+      color: #aaa;
+      transition: 0.3s;
+      font-weight: 500;
+      font-size: 15px;
+    }
 
-/* HOVER UGUALE PER ENTRAMBI */
-.calc-buttons a:hover{
-  transform:translateY(-3px);
-  box-shadow:0 0 20px rgba(0,0,0,0.3);
-  opacity:0.9;
-}
-	.form {
-  order: 2;
-}
+    .nav span.active {
+      color: #f5d76e;
+      text-shadow: 0 0 10px #d4af37;
+    }
 
-.calc-box {
-  order: 1;
-}
-	
- </style>
-    
-    <script src="https://unpkg.com/@supabase/supabase-js"></script>
-  
-  </head> <body> <div class="topbar"> <div class="nav"> <span onclick="go('home')">Home</span> <span onclick="go('servizi')">Servizi</span> <span onclick="go('recensioni')">Recensioni</span> <span onclick="go('contattami')">Contattami</span> </div> </div> <section id="home" class="hero"> <div class="subtitle">CONSULENTE DEL CREDITO</div> <h1>SAVERIO PUCCIO</h1> <p>📍Gorizia, Udine e provincia — Soluzioni finanziarie su misura per te</p> <a onclick="callMe()" class="btn btn-call">Chiama</a>
-  <a onclick="openWhatsApp()" class="btn btn-wa">WhatsApp</a> <a onclick="openFacebook()" class="btn btn-fb">Facebook</a> </section> <section id="servizi" class="section"> <h2>I Miei Servizi</h2> <div class="services"> <div class="card"><h3>Mutui</h3><p>Soluzioni personalizzate per l'acquisto della prima e seconda casa. Confronto tra le migliori offerte delle principali banche per trovare il tasso più conveniente.</p></div> <div class="card"><h3>Prestiti</h3><p>Prestiti personali per ogni esigenza: liquidità, acquisti importanti, spese impreviste. Valutazione rapida e accesso alle migliori condizioni di mercato.</p></div> <div class="card"><h3>Cessione del Quinto</h3><p>Finanziamento con trattenuta diretta sulla busta paga o sulla pensione. Ideale per dipendenti pubblici, privati e pensionati. Procedure semplificate e approvazione veloce.</p></div> <div class="card"><h3>Assicurazioni</h3><p>Polizze vita, protezione del credito, assicurazioni sulla casa e prodotti di risparmio. Consulenza indipendente per scegliere la copertura più adatta alle tue esigenze.</p></div> </div> </section> <section id="recensioni" class="section"> <h2>Recensioni</h2> <div class="reviews"> <div class="review"> <div class="stars">★★★★★</div> <p>"Saverio mi ha aiutato a ottenere il mutuo per la mia prima casa in tempi record. Professionale, disponibile e sempre pronto a spiegare ogni dettaglio. Lo consiglio vivamente!"</p> <div class="review-footer"><strong>Marco R.</strong></div> </div> <div class="review"> <div class="stars">★★★★★</div> <p>"Ottimo consulente! Grazie alla sua esperienza ho trovato il prestito personale più conveniente sul mercato. Disponibile anche fuori orario."</p> <div class="review-footer"><strong>Giulia T.</strong></div> </div> <div class="review"> <div class="stars">★★★★★</div> <p>"Abbiamo acquistato la nostra casa a Gorizia grazie alla consulenza di Saverio. Ha gestito tutto con grande competenza."</p> <div class="review-footer"><strong>Roberto e Anna M.</strong></div> </div> <div class="review"> <div class="stars">★★★★★</div> <p>"Finalmente un consulente chiaro e senza sorprese. La cessione del quinto è stata attivata in pochissimo tempo."</p> <div class="review-footer"><strong>Francesca L.</strong></div> </div> <div class="review"> <div class="stars">★★★★★</div> <p>"Ho contattato Saverio per una surroga e il risultato è stato fantastico: ho risparmiato centinaia di euro al mese."</p> <div class="review-footer"><strong>Stefano B.</strong></div> </div> <div class="review"> <div class="stars">★★★★★</div> <p>"Cercavo qualcuno di fiducia per le polizze della mia famiglia. Saverio ha trovato la soluzione perfetta."</p> <div class="review-footer"><strong>Laura P.</strong></div> </div> </strong></div> </section> 
+    .nav span:hover {
+      color: #f5d76e;
+      text-shadow: 0 0 10px #d4af37;
+    }
+
+    /* =========================
+       HERO - SFONDO SOLO COLORE SCURO SENZA PATTERN
+    ========================= */
+
+    .hero {
+      text-align: center;
+      padding: 130px 20px 190px 20px;
+      background: #0b1220;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: 4em;
+    }
+
+    @keyframes glow {
+      0% {
+        text-shadow: 0 0 5px #f5d76e;
+      }
+      50% {
+        text-shadow: 0 0 20px #d4af37, 0 0 40px rgba(212, 175, 55, 0.8);
+      }
+      100% {
+        text-shadow: 0 0 5px #f5d76e;
+      }
+    }
+
+    .subtitle {
+      color: #f5d76e;
+      letter-spacing: 3px;
+      animation: glow 2s infinite ease-in-out;
+    }
+
+    /* =========================
+       BUTTONS - ORIZZONTALI
+    ========================= */
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .btn {
+      padding: 14px 28px;
+      border-radius: 30px;
+      display: inline-block;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+      cursor: pointer;
+      border: none;
+      font-size: 15px;
+    }
+
+    .btn-call {
+      background: #d4af37;
+      color: #111;
+    }
+
+    .btn-wa {
+      background: #25D366;
+      color: #fff;
+    }
+
+    .btn:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .btn-fb {
+      background: #1877F2;
+      color: #fff;
+    }
+
+    .section {
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    .section h2 {
+      font-size: 3em;
+      margin-bottom: 20px;
+    }
+
+    /* =========================
+       CANDIDATURA - SPOSTATO 1,5cm PIU' IN BASSO
+    ========================= */
+
+    #candidatura {
+      padding: 8px 20px 40px 20px;
+      min-height: auto;
+      scroll-margin-top: 0px;
+      margin-top: 15px;
+    }
+
+    #candidatura h2 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      padding-top: 2px;
+      text-align: center;
+    }
+
+    .candidatura-wrapper {
+      display: flex;
+      justify-content: center;
+      margin-top: 2px;
+    }
+
+    /* BOX PRINCIPALE */
+    .mascotte-box {
+      width: 100%;
+      max-width: 960px;
+      background: #111b33;
+      border-radius: 20px;
+      padding: 20px 30px 25px 30px;
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      box-sizing: border-box;
+      height: 580px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Contenitore scrollabile internamente - CENTRATO VERTICALMENTE */
+    .mascotte-scroll {
+      width: 100%;
+      height: 100%;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding-right: 5px;
+    }
+
+    .mascotte-scroll::-webkit-scrollbar {
+      width: 3px;
+    }
+    .mascotte-scroll::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .mascotte-scroll::-webkit-scrollbar-thumb {
+      background: rgba(212, 175, 55, 0.3);
+      border-radius: 4px;
+    }
+
+    /* Avatar - CENTRATO */
+    .mascotte-avatar-wrap {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 4px;
+      flex-shrink: 0;
+      width: 100%;
+      padding-top: 4px;
+    }
+
+    #mascotteSvg {
+      width: 65px;
+      height: 65px;
+      animation: floatMascotte 3s ease-in-out infinite;
+    }
+
+    @keyframes floatMascotte {
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-5px);
+      }
+    }
+
+    #mascotteEyes {
+      animation: blinkMascotte 4s infinite;
+      transform-origin: center;
+    }
+
+    @keyframes blinkMascotte {
+      0%,
+      92%,
+      100% {
+        transform: scaleY(1);
+      }
+      95% {
+        transform: scaleY(0.1);
+      }
+    }
+
+    #mascotteArm {
+      animation: waveMascotte 2.2s ease-in-out infinite;
+      transform-origin: 78px 62px;
+    }
+
+    @keyframes waveMascotte {
+      0%,
+      100% {
+        transform: rotate(0deg);
+      }
+      50% {
+        transform: rotate(-18deg);
+      }
+    }
+
+    /* Progress dots - CENTRATO */
+    .chat-progress {
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+      margin: 4px 0 8px 0;
+      flex-shrink: 0;
+      width: 100%;
+    }
+
+    .chat-progress span {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(212, 175, 55, 0.2);
+      transition: 0.4s;
+    }
+
+    .chat-progress span.done {
+      background: #f5d76e;
+      box-shadow: 0 0 8px rgba(212, 175, 55, 0.5);
+    }
+
+    /* Bubble - CENTRATA con testo più grande */
+    .chat-bubble {
+      background: #0f1b33;
+      border: 1px solid rgba(212, 175, 55, 0.25);
+      border-radius: 14px;
+      padding: 12px 20px;
+      width: 100%;
+      max-width: 750px;
+      text-align: center;
+      margin: 0 auto 10px auto;
+      flex-shrink: 0;
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .chat-bubble p {
+      margin: 0;
+      color: #f5d76e;
+      font-size: 1em;
+      line-height: 1.4;
+      text-align: center;
+    }
+
+    /* Nascondi bubble e opzioni dopo il risultato */
+    .chat-bubble.hidden,
+    .chat-progress.hidden,
+    .chat-options.hidden {
+      display: none !important;
+    }
+
+    /* Opzioni (bottoni) - CENTRATI con testo più grande */
+    .chat-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+      margin: 4px 0 6px 0;
+      flex-shrink: 0;
+      width: 100%;
+      max-width: 750px;
+      min-height: 36px;
+      transition: all 0.3s ease;
+    }
+
+    .chat-options button {
+      width: auto;
+      flex: 1 1 auto;
+      min-width: 100px;
+      max-width: 180px;
+      background: #0f1b33;
+      border: 1.5px solid rgba(212, 175, 55, 0.35);
+      color: #f5d76e;
+      padding: 10px 16px;
+      border-radius: 10px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.25s;
+      font-size: 13px;
+      text-align: center;
+    }
+
+    .chat-options button:hover {
+      background: #d4af37;
+      color: #111;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Area risultato - CENTRATA */
+    #risultatoArea {
+      width: 100%;
+      max-width: 750px;
+      min-height: 70px;
+      margin: 4px 0 6px 0;
+      flex-shrink: 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    .risultato-box {
+      background: #0f1b33;
+      border-radius: 12px;
+      padding: 12px 16px;
+      border: 1px solid rgba(212, 175, 55, 0.15);
+      text-align: center;
+      width: 100%;
+    }
+
+    .risultato-box .tasso {
+      font-size: 2.8em;
+      color: #f5d76e;
+      font-weight: bold;
+      line-height: 1.2;
+      text-align: center;
+    }
+
+    .risultato-box .tasso span {
+      font-size: 0.4em;
+      color: #cfd6e6;
+    }
+
+    .risultato-box .dettaglio {
+      color: #cfd6e6;
+      font-size: 13px;
+      margin-top: 4px;
+      line-height: 1.4;
+      text-align: center;
+    }
+
+    /* Layout a due colonne - CENTRATO con distanze uguali */
+    .consulenza-two-col {
+      display: flex;
+      gap: 14px;
+      width: 100%;
+      max-width: 750px;
+      flex-shrink: 0;
+      margin-top: 4px;
+      align-items: stretch;
+      justify-content: center;
+      padding: 0;
+    }
+
+    .consulenza-two-col .col-left,
+    .consulenza-two-col .col-right {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      gap: 4px;
+    }
+
+    .consulenza-two-col .col-left .final-form-wrapper,
+    .consulenza-two-col .col-right .final-form-wrapper {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .consulenza-two-col .col-left .final-form-wrapper .form,
+    .consulenza-two-col .col-right .final-form-wrapper .form {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      justify-content: space-between;
+    }
+
+    .consulenza-two-col .col-left .final-form-wrapper .form input {
+      flex-shrink: 0;
+      margin-bottom: 10px;
+    }
+
+    .consulenza-two-col .col-left .final-form-wrapper .form input:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Form compatto - CON LE STESSE DISTANZE DELLA SEZIONE CONTATTAMI */
+    .final-form-wrapper {
+      background: #0f1b33;
+      border: 1px solid rgba(212, 175, 55, 0.12);
+      border-radius: 12px;
+      padding: 14px 14px 14px 14px;
+      width: 100%;
+      margin: 0;
+      flex-shrink: 0;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .final-form-wrapper .form {
+      width: 100%;
+      max-width: none;
+      margin: 0;
+      padding: 0;
+      background: none;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    /* STESSE DISTANZE DELLA SEZIONE CONTATTAMI */
+    .final-form-wrapper .form input,
+    .final-form-wrapper .form textarea {
+      background: #0b1220;
+      border: 1px solid rgba(212, 175, 55, 0.1);
+      border-radius: 8px;
+      padding: 12px;
+      font-size: 13px;
+      width: 100%;
+      text-align: left;
+    }
+
+    .final-form-wrapper .form input {
+      margin-bottom: 10px;
+    }
+
+    .final-form-wrapper .form input:last-child {
+      margin-bottom: 0;
+    }
+
+    .final-form-wrapper .form input:focus,
+    .final-form-wrapper .form textarea:focus {
+      outline: 2px solid rgba(212, 175, 55, 0.3);
+    }
+
+    /* TEXTAREA - allungato verso l'alto fino a Cognome */
+    .final-form-wrapper .form textarea {
+      min-height: 118px;
+      max-height: 118px;
+      height: 118px;
+      flex: 0 0 auto;
+      font-size: 13px;
+      margin-bottom: 0;
+      overflow-y: auto;
+    }
+
+    .final-form-wrapper .calc-buttons {
+      margin-top: 4px;
+    }
+
+    .final-form-wrapper .calc-buttons button {
+      border-radius: 10px;
+      padding: 10px;
+      font-size: 14px;
+    }
+
+    /* STESSE DISTANZE DELLA SEZIONE CONTATTAMI PER LA PRIVACY */
+    .final-form-wrapper .privacy {
+      font-size: 13px;
+      margin: 10px 0 15px 0;
+      gap: 10px;
+      justify-content: flex-start;
+      display: flex;
+    }
+
+    /* Bottone restart - CENTRATO */
+    .chat-restart {
+      display: block;
+      margin: 8px auto 0 auto;
+      background: none;
+      border: none;
+      color: #7f8fb3;
+      text-decoration: underline;
+      cursor: pointer;
+      font-size: 12px;
+      width: auto;
+      padding: 4px 8px;
+      flex-shrink: 0;
+      text-align: center;
+    }
+
+    .chat-restart:hover {
+      color: #f5d76e;
+    }
+
+    /* Riga centrale per bottone e privacy - PIU' IN BASSO */
+    .send-row {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 6px;
+      margin-top: 18px;
+      width: 100%;
+      max-width: 750px;
+      flex-shrink: 0;
+    }
+
+    .send-row .calc-buttons {
+      width: 100%;
+      margin-top: 0;
+    }
+
+    .send-row .calc-buttons button {
+      width: 100%;
+      padding: 10px;
+      font-size: 14px;
+    }
+
+    .send-row .privacy {
+      margin: 0 0 2px 0;
+      justify-content: flex-start;
+      font-size: 13px;
+      display: flex;
+      gap: 10px;
+    }
+
+    .send-row .privacy input {
+      width: 16px;
+      height: 16px;
+    }
+
+    /* Contenitore principale che si compatta dopo il risultato */
+    .content-compact {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+
+    /* =========================
+       SERVIZI - AUMENTATO SPAZIO VERSO IL BASSO
+    ========================= */
+
+    #servizi {
+      padding-top: 180px;
+      padding-bottom: 180px;
+      /* Aumentato per più spazio verso Recensioni */
+      margin-top: -100px;
+      scroll-margin-top: 80px;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 25px;
+      margin-top: 40px;
+    }
+
+    .card {
+      background: #111b33;
+      padding: 30px;
+      border-radius: 20px;
+      text-align: left;
+      transition: 0.3s;
+      border: 1px solid rgba(212, 175, 55, 0.2);
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 0 25px rgba(212, 175, 55, 0.6);
+    }
+
+    .card h3 {
+      color: #f5d76e;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      font-style: italic;
+      color: #cfd6e6;
+      line-height: 1.6;
+    }
+
+    .card:hover p {
+      color: #ffffff;
+    }
+
+    /* =========================
+       RECENSIONI - AUMENTATO SPAZIO VERSO IL BASSO
+    ========================= */
+
+    #recensioni {
+      padding-top: 90px;
+      padding-bottom: 180px;
+      /* Aumentato per più spazio verso Contattami */
+      margin-top: -60px;
+      scroll-margin-top: 80px;
+    }
+
+    .reviews {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .review {
+      background: #0b162b;
+      padding: 30px;
+      border-radius: 20px;
+      border: 1px solid rgba(212, 175, 55, 0.15);
+      transition: 0.3s;
+    }
+
+    .review:hover {
+      box-shadow: 0 0 25px rgba(212, 175, 55, 0.5);
+      transform: translateY(-6px);
+    }
+
+    .stars {
+      color: #f5d76e;
+      margin-bottom: 15px;
+      font-size: 18px;
+    }
+
+    .review p {
+      color: #cfd6e6;
+      line-height: 1.6;
+      font-style: italic;
+    }
+
+    .review-footer {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+      font-size: 14px;
+    }
+
+    .review-footer strong {
+      color: #f5d76e;
+    }
+
+    .review-footer span {
+      color: #7f8fb3;
+    }
+
+    /* =========================
+       CONTATTI - AUMENTATO SPAZIO VERSO L'ALTO
+    ========================= */
+
+    #contattami {
+      padding-top: 100px;
+      /* Aumentato per più spazio da Recensioni */
+      padding-bottom: 20px;
+      scroll-margin-top: 80px;
+    }
+
+    .contact-wrapper {
+      display: flex;
+      gap: 30px;
+      justify-content: center;
+      align-items: stretch;
+      flex-wrap: wrap;
+    }
+
+    /* =========================
+       FORM
+    ========================= */
+
+    .form {
+      max-width: 500px;
+      width: 100%;
+      margin: 0 auto;
+      background: #111b33;
+      padding: 25px;
+      border-radius: 20px;
+    }
+
+    .contact-wrapper .form {
+      flex: 1;
+      min-width: 300px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 12px;
+      border-radius: 8px;
+      border: none;
+      background: #0f1b33;
+      color: white;
+      box-sizing: border-box;
+      font-size: 14px;
+    }
+
+    textarea {
+      resize: none;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: 10px;
+      background: #25D366;
+      color: white;
+      transition: 0.3s;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      opacity: 0.9;
+    }
+
+    .calc-box {
+      flex: 1;
+      min-width: 300px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .calc-box h3 {
+      color: #f5d76e;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .result {
+      margin-top: 20px;
+      padding: 15px;
+      border-radius: 10px;
+      background: #0f1b33;
+      text-align: center;
+      font-size: 18px;
+      color: #f5d76e;
+    }
+
+    .calc-buttons {
+      display: flex;
+      gap: 15px;
+      margin-top: 15px;
+    }
+
+    .calc-buttons a {
+      flex: 1;
+      text-align: center;
+      padding: 14px 0;
+      font-weight: bold;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .calc-buttons .btn-call {
+      background: #d4af37;
+      color: #111;
+    }
+
+    .calc-buttons .btn-fb {
+      background: #1877F2;
+      color: #fff;
+    }
+
+    .calc-buttons a:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      opacity: 0.9;
+    }
+
+    .form {
+      order: 2;
+    }
+
+    .calc-box {
+      order: 1;
+    }
+
+    /* =========================
+       PRIVACY
+    ========================= */
+
+    .privacy {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      color: #cfd6e6;
+      margin: 10px 0 15px 0;
+    }
+
+    .privacy input {
+      width: 16px;
+      height: 16px;
+      margin: 0;
+      flex-shrink: 0;
+      accent-color: #f5d76e;
+      cursor: pointer;
+    }
+
+    .privacy a {
+      color: #25D366;
+      text-decoration: none;
+    }
+
+    .privacy span {
+      position: relative;
+      top: -1px;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    .footer {
+      background: #081226;
+      text-align: center;
+      padding: 20px;
+      color: #7f8fb3;
+      font-size: 13px;
+      border-top: 1px solid rgba(212, 175, 55, 0.2);
+      margin-top: 50px;
+    }
+
+    .footer span {
+      opacity: 0.8;
+    }
+
+    /* =========================
+       INPUT NUMBER
+    ========================= */
+
+    input[type=number]::-webkit-outer-spin-button,
+    input[type=number]::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    input[type=number] {
+      -moz-appearance: textfield;
+    }
+
+    /* =========================
+       SELECT
+    ========================= */
+
+    select {
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      cursor: pointer;
+      background-image:
+        linear-gradient(45deg, transparent 50%, #f5d76e 50%),
+        linear-gradient(135deg, #f5d76e 50%, transparent 50%);
+      background-position:
+        calc(100% - 18px) calc(1em + 2px),
+        calc(100% - 13px) calc(1em + 2px);
+      background-size: 5px 5px, 5px 5px;
+      background-repeat: no-repeat;
+      padding-right: 35px;
+    }
+
+    option {
+      background: #111b33;
+      color: white;
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media(max-width:900px) {
+
+      .services {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .reviews {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .hero h1 {
+        font-size: 3em;
+      }
+
+      .mascotte-box {
+        padding: 16px 18px 18px 18px;
+        height: 560px;
+      }
+
+      .chat-options button {
+        min-width: 80px;
+        max-width: 160px;
+        font-size: 12px;
+        padding: 8px 12px;
+      }
+
+      .chat-bubble p {
+        font-size: 0.95em;
+      }
+
+      .consulenza-two-col {
+        flex-direction: column;
+        gap: 6px;
+      }
+
+      .consulenza-two-col .col-right .final-form-wrapper .form textarea {
+        min-height: 90px;
+        max-height: 90px;
+        height: 90px;
+      }
+
+      .consulenza-two-col .col-left .final-form-wrapper .form input {
+        margin-bottom: 8px;
+      }
+
+      .consulenza-two-col .col-left .final-form-wrapper .form input:last-child {
+        margin-bottom: 0;
+      }
+
+      #candidatura h2 {
+        font-size: 2em;
+        margin-bottom: 8px;
+      }
+
+      .send-row {
+        margin-top: 14px;
+      }
+
+      #servizi {
+        padding-top: 140px;
+        padding-bottom: 140px;
+        margin-top: -80px;
+      }
+
+      #recensioni {
+        padding-top: 70px;
+        padding-bottom: 140px;
+        margin-top: -50px;
+      }
+
+      #contattami {
+        padding-top: 80px;
+      }
+
+      .hero {
+        padding: 100px 20px 160px 20px;
+      }
+
+    }
+
+    @media(max-width:650px) {
+
+      .topbar {
+        padding: 10px 8px;
+      }
+
+      .nav {
+        gap: 10px;
+      }
+
+      .nav span {
+        font-size: 14px;
+      }
+
+      .hero h1 {
+        font-size: 2em;
+      }
+
+      .hero {
+        padding: 70px 15px 120px 15px;
+        min-height: 100vh;
+      }
+
+      .section h2 {
+        font-size: 2em;
+      }
+
+      .services {
+        grid-template-columns: 1fr;
+      }
+
+      .reviews {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-wrapper .form {
+        min-width: 100%;
+      }
+
+      .mascotte-box {
+        padding: 12px 12px 14px 12px;
+        height: auto;
+        min-height: 520px;
+        max-height: 90vh;
+        border-radius: 16px;
+        overflow-y: auto;
+      }
+
+      .mascotte-scroll {
+        padding-right: 2px;
+        justify-content: flex-start;
+        padding-top: 6px;
+      }
+
+      .mascotte-avatar-wrap {
+        padding-top: 6px;
+        margin-bottom: 2px;
+      }
+
+      .chat-options {
+        gap: 6px;
+        min-height: 30px;
+      }
+
+      .chat-options button {
+        min-width: 70px;
+        max-width: 100%;
+        flex: 1 1 45%;
+        font-size: 11px;
+        padding: 8px 12px;
+      }
+
+      .chat-bubble {
+        padding: 10px 14px;
+        min-height: 38px;
+      }
+
+      .chat-bubble p {
+        font-size: 0.9em;
+      }
+
+      #mascotteSvg {
+        width: 50px;
+        height: 50px;
+        flex-shrink: 0;
+      }
+
+      .risultato-box .tasso {
+        font-size: 2em;
+      }
+
+      .final-form-wrapper {
+        padding: 10px 10px 12px 10px;
+      }
+
+      .final-form-wrapper .form input,
+      .final-form-wrapper .form textarea {
+        font-size: 12px;
+        padding: 10px;
+      }
+
+      .final-form-wrapper .form input {
+        margin-bottom: 8px;
+      }
+
+      .final-form-wrapper .form input:last-child {
+        margin-bottom: 0;
+      }
+
+      .final-form-wrapper .form textarea {
+        min-height: 70px;
+        max-height: 70px;
+        height: 70px;
+      }
+
+      .final-form-wrapper .privacy {
+        font-size: 12px;
+        margin: 8px 0 12px 0;
+        gap: 8px;
+        justify-content: flex-start !important;
+      }
+
+      .section {
+        padding: 40px 12px;
+      }
+
+      #candidatura {
+        padding: 6px 8px 30px 8px;
+        min-height: auto;
+        margin-top: 10px;
+      }
+
+      #candidatura h2 {
+        font-size: 1.6em;
+        margin-bottom: 6px;
+        padding-top: 2px;
+      }
+
+      #risultatoArea {
+        min-height: 50px;
+        margin: 2px 0 4px 0;
+      }
+
+      .consulenza-two-col {
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .send-row .calc-buttons button {
+        font-size: 12px;
+        padding: 8px;
+      }
+
+      .send-row {
+        margin-top: 10px;
+        gap: 4px;
+      }
+
+      .send-row .privacy {
+        font-size: 12px;
+        gap: 8px;
+        margin: 2px 0;
+        justify-content: flex-start !important;
+      }
+
+      #servizi {
+        padding-top: 100px;
+        padding-bottom: 100px;
+        margin-top: -60px;
+      }
+
+      #recensioni {
+        padding-top: 50px;
+        padding-bottom: 100px;
+        margin-top: -40px;
+      }
+
+      #contattami {
+        padding-top: 60px;
+      }
+
+      /* Fix per il form mobile - allineamento checkbox a sinistra e riquadro allungato */
+      #finalFormMobile {
+        height: auto !important;
+        flex-shrink: 0;
+        padding: 12px 12px 14px 12px;
+        margin-bottom: 4px;
+      }
+
+      #finalFormMobile .form {
+        height: auto !important;
+        gap: 4px;
+      }
+
+      #finalFormMobile .privacy {
+        justify-content: flex-start !important;
+        margin: 6px 0 8px 0;
+        display: flex !important;
+        align-items: center;
+        gap: 8px;
+        text-align: left;
+        width: 100%;
+      }
+
+      #finalFormMobile .privacy input {
+        margin: 0;
+        flex-shrink: 0;
+        width: 18px;
+        height: 18px;
+        accent-color: #f5d76e;
+        cursor: pointer;
+      }
+
+      #finalFormMobile .privacy span {
+        text-align: left;
+        display: inline;
+        font-size: 12px;
+      }
+
+      #finalFormMobile .calc-buttons {
+        margin-top: 4px;
+        width: 100%;
+      }
+
+      #finalFormMobile .calc-buttons button {
+        font-size: 13px;
+        padding: 10px;
+        width: 100%;
+      }
+
+      /* Assicura che il riquadro non venga tagliato e sia allungato */
+      .mascotte-box #finalFormMobile {
+        height: auto !important;
+        flex-shrink: 0;
+      }
+
+      .mascotte-box #finalFormMobile .form {
+        height: auto !important;
+      }
+
+      .mascotte-scroll {
+        justify-content: flex-start;
+        padding-top: 4px;
+        padding-bottom: 4px;
+      }
+
+    }
+
+    @media(max-width:420px) {
+
+      .chat-options button {
+        flex: 1 1 100%;
+        max-width: 100%;
+        min-width: unset;
+        font-size: 11px;
+      }
+
+      .mascotte-box {
+        padding: 8px 8px 10px 8px;
+        min-height: 460px;
+        border-radius: 12px;
+      }
+
+      .nav span {
+        font-size: 13px;
+      }
+
+      .nav {
+        gap: 6px;
+      }
+
+      .topbar {
+        padding: 8px 4px;
+      }
+
+      #risultatoArea {
+        min-height: 40px;
+      }
+
+      .chat-bubble {
+        min-height: 32px;
+        padding: 8px 10px;
+      }
+
+      .chat-bubble p {
+        font-size: 0.85em;
+      }
+
+      .risultato-box {
+        padding: 8px 10px;
+      }
+
+      .risultato-box .tasso {
+        font-size: 1.6em;
+      }
+
+      .risultato-box .dettaglio {
+        font-size: 11px;
+      }
+
+      .send-row {
+        margin-top: 8px;
+      }
+
+      .send-row .calc-buttons button {
+        font-size: 11px;
+        padding: 6px;
+      }
+
+      .final-form-wrapper .form input,
+      .final-form-wrapper .form textarea {
+        font-size: 11px;
+        padding: 8px;
+      }
+
+      .final-form-wrapper .form input {
+        margin-bottom: 6px;
+      }
+
+      .final-form-wrapper .form input:last-child {
+        margin-bottom: 0;
+      }
+
+      .final-form-wrapper .form textarea {
+        min-height: 56px;
+        max-height: 56px;
+        height: 56px;
+      }
+
+      .final-form-wrapper .privacy {
+        font-size: 11px;
+        margin: 6px 0 8px 0;
+        gap: 6px;
+        justify-content: flex-start !important;
+      }
+
+      #servizi {
+        padding-top: 70px;
+        padding-bottom: 70px;
+        margin-top: -40px;
+      }
+
+      #recensioni {
+        padding-top: 40px;
+        padding-bottom: 70px;
+        margin-top: -30px;
+      }
+
+      #contattami {
+        padding-top: 45px;
+      }
+
+      .hero {
+        padding: 50px 10px 90px 10px;
+      }
+
+      /* Fix per schermi molto piccoli */
+      #finalFormMobile {
+        padding: 10px 10px 12px 10px;
+      }
+
+      #finalFormMobile .privacy {
+        font-size: 10px;
+        gap: 5px;
+        margin: 4px 0 6px 0;
+        justify-content: flex-start !important;
+      }
+
+      #finalFormMobile .privacy input {
+        width: 16px;
+        height: 16px;
+      }
+
+      #finalFormMobile .calc-buttons button {
+        font-size: 12px;
+        padding: 8px;
+      }
+
+      .mascotte-avatar-wrap {
+        padding-top: 2px;
+        margin-bottom: 0px;
+      }
+
+      #mascotteSvg {
+        width: 42px;
+        height: 42px;
+      }
+    }
+  </style>
+
+  <script src="https://unpkg.com/@supabase/supabase-js">
+  </script>
+
+</head>
 
 
-<section id="contattami" class="section">
-  <h2>Contattami</h2>
+<body>
 
-  <div class="contact-wrapper">
 
-    <!-- FORM -->
-    <div class="form">
-      <form id="form">
-        <input id="name" placeholder="Nome" required>
-        <input id="surname" placeholder="Cognome" required>
-        <input id="phone" placeholder="Cellulare" required>
-        <input id="email" placeholder="Email" required>
-        <textarea id="message" placeholder="Messaggio"></textarea>
+  <!-- =========================
+       NAVBAR
+  ========================= -->
 
-        <label class="privacy">
-          <input type="checkbox" id="privacy">
-          <span>
-            Accetto l’informativa privacy
-            <a href="privacy.html" target="_blank">Leggi informativa</a>
-          </span>
-        </label>
-		<div class="calc-buttons">
-          <button type="button" class="btn btn-wa" onclick="sendWhatsApp()">Invia su WhatsApp</button>
-</div>
-      </form>
-    </div>
+  <div class="topbar">
 
-    <!-- CALCOLATORE -->
-    <div class="form calc-box">
-      <h3>Calcolo Mutuo</h3>
+    <div class="nav">
 
-      <input id="stipendio1" placeholder="Busta paga netta 1 (€)">
-      <input id="stipendio2" placeholder="Busta paga netta 2 (€)">
+      <span onclick="go('candidatura')">
+        Richiedi consulenza
+      </span>
 
-      <select id="durata">
-        <option value="">Seleziona durata</option>
-        <option value="20">20 anni</option>
-        <option value="25">25 anni</option>
-        <option value="30">30 anni</option>
-      </select>
+      <span onclick="go('home')">
+        Home
+      </span>
 
-      <div class="result" id="risultatoMutuo">
-        Inserisci i dati
-      </div>
+      <span onclick="go('servizi')">
+        Servizi
+      </span>
 
-<div class="calc-buttons">
-  <a onclick="callMe()" class="btn btn-call">Chiama</a>
-  <a onclick="openFacebook()" class="btn btn-fb">Facebook</a>
-</div>
+      <span onclick="go('recensioni')">
+        Recensioni
+      </span>
+
+      <span onclick="go('contattami')">
+        Contattami
+      </span>
 
     </div>
 
   </div>
-</section>
 
- <script>
-document.addEventListener("DOMContentLoaded", function(){ const input1 = document.getElementById("stipendio1"); const input2 = document.getElementById("stipendio2"); const durataInput = document.getElementById("durata"); const risultato = document.getElementById("risultatoMutuo"); input1.addEventListener("input", calcolaMutuo); input2.addEventListener("input", calcolaMutuo); durataInput.addEventListener("change", calcolaMutuo); function calcolaMutuo(){ let s1 = parseFloat(input1.value) || 0; let s2 = parseFloat(input2.value) || 0; let anni = parseInt(durataInput.value); if(!anni || (s1 === 0 && s2 === 0)){ risultato.innerText = "Inserisci i dati"; return; } let media = (s1 + s2) / 2; let rata = media * 0.33; let n = anni * 12; let tasso = 0.035 / 12; let mutuo = rata * (1 - Math.pow(1 + tasso, -n)) / tasso; risultato.innerText = "Mutuo stimato: € " + Math.round(mutuo).toLocaleString() + " (" + anni + " anni)"; } });   
 
- 
-  
-  const supabaseUrl = "https://vtojhpjjqnznwkclmedj.supabase.co";
-  const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZ0b2pocGpqcW56bndrY2xtZWRqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzYzNTM1OTIsImV4cCI6MjA5MTkyOTU5Mn0.gzWiBvGoGc8YB8v4VtYhrwLfCZv-voQ8zD_VnlXJZDE"; // da Supabase → Settings → API
-  
-  const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
-    
-  
-  function go(id){
-  
-    // SCROLL
-    if(id === "home"){
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
+  <!-- =========================
+       CANDIDATURA
+  ========================= -->
+
+  <section id="candidatura" class="section">
+
+    <h2>Richiedi la tua Consulenza</h2>
+
+    <div class="candidatura-wrapper">
+
+      <div class="mascotte-box">
+
+        <div class="mascotte-scroll">
+
+          <div class="mascotte-avatar-wrap">
+
+            <svg id="mascotteSvg" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+
+              <circle cx="60" cy="65" r="34" fill="#0f1b33" stroke="#f5d76e" stroke-width="3" />
+
+              <circle cx="60" cy="30" r="22" fill="#f5d76e" />
+
+              <g id="mascotteEyes">
+
+                <circle cx="52" cy="28" r="3" fill="#0b1220" />
+
+                <circle cx="68" cy="28" r="3" fill="#0b1220" />
+
+              </g>
+
+              <path d="M50 38 Q60 44 70 38" stroke="#0b1220" stroke-width="2.5" fill="none" stroke-linecap="round" />
+
+              <rect x="55" y="55" width="10" height="16" fill="#d4af37" />
+
+              <path d="M55 55 L60 65 L65 55 Z" fill="#0b1220" />
+
+              <line id="mascotteArm" x1="78" y1="62" x2="94" y2="48" stroke="#f5d76e" stroke-width="6" stroke-linecap="round" />
+
+              <circle cx="94" cy="48" r="5" fill="#f5d76e" />
+
+            </svg>
+
+          </div>
+
+
+          <div id="chatProgress" class="chat-progress"></div>
+
+
+          <div class="chat-bubble" id="chatBubble">
+
+            <p id="chatQuestion">
+              Ciao! Sono l'assistente di Saverio 👋
+              Quale servizio ti interessa?
+            </p>
+
+          </div>
+
+
+          <div id="chatOptions" class="chat-options"></div>
+
+
+          <div id="risultatoArea"></div>
+
+
+          <!-- Layout a due colonne con STESSA ALTEZZA -->
+          <div class="consulenza-two-col" id="consulenzaTwoCol" style="display:none;">
+
+            <div class="col-left">
+
+              <div class="final-form-wrapper">
+
+                <div class="form">
+
+                  <input id="candName" placeholder="Nome *" required>
+
+                  <input id="candSurname" placeholder="Cognome *" required>
+
+                  <input id="candPhone" placeholder="Cellulare *" required>
+
+                </div>
+
+              </div>
+
+            </div>
+
+            <div class="col-right">
+
+              <div class="final-form-wrapper">
+
+                <div class="form">
+
+                  <input id="candEmail" placeholder="Email *" required>
+
+                  <textarea id="candMessage" rows="3" placeholder="Messaggio" readonly style="color:#cfd6e6; background:#0b1220; border:1px solid rgba(212,175,55,0.1); border-radius:8px; padding:12px; font-size:13px; width:100%; resize:none; cursor:default; min-height:118px; max-height:118px; height:118px; overflow-y:auto;"></textarea>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- Riga centrale con PRIVACY a SINISTRA e BOTTONE SOTTO - PIU' IN BASSO -->
+          <div class="send-row" id="sendRow" style="display:none;">
+
+            <label class="privacy">
+
+              <input type="checkbox" id="candPrivacy">
+
+              <span>
+
+                Accetto l'informativa privacy
+
+                <a href="privacy.html" target="_blank">
+
+                  Leggi Informativa
+
+                </a>
+
+              </span>
+
+            </label>
+
+            <div class="calc-buttons">
+
+              <button type="button" class="btn btn-wa" onclick="sendCandidatura()">
+
+                Invia su WhatsApp
+
+              </button>
+
+            </div>
+
+          </div>
+
+
+          <!-- Versione mobile (senza due colonne) -->
+          <div class="final-form-wrapper" id="finalFormMobile" style="display:none;">
+
+            <div class="form">
+
+              <input id="candNameM" placeholder="Nome *" required>
+
+              <input id="candSurnameM" placeholder="Cognome *" required>
+
+              <input id="candPhoneM" placeholder="Cellulare *" required>
+
+              <input id="candEmailM" placeholder="Email *" required>
+
+              <textarea id="candMessageM" rows="3" placeholder="Messaggio" readonly style="color:#cfd6e6; background:#0b1220; border:1px solid rgba(212,175,55,0.1); border-radius:8px; padding:12px; font-size:13px; width:100%; resize:none; cursor:default; min-height:70px; max-height:70px; height:70px; overflow-y:auto;"></textarea>
+
+              <label class="privacy">
+
+                <input type="checkbox" id="candPrivacyM">
+
+                <span>
+
+                  Accetto l'informativa privacy
+
+                  <a href="privacy.html" target="_blank">
+
+                    Leggi Informativa
+
+                  </a>
+
+                </span>
+
+              </label>
+
+              <div class="calc-buttons">
+
+                <button type="button" class="btn btn-wa" onclick="sendCandidaturaMobile()">
+
+                  Invia su WhatsApp
+
+                </button>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <button type="button" class="chat-restart" id="chatRestartBtn" style="display:none;" onclick="restartCandidatura()">
+
+            Ricomincia da capo
+
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       HOME
+  ========================= -->
+
+  <section id="home" class="hero">
+
+    <div class="subtitle">
+      CONSULENTE DEL CREDITO
+    </div>
+
+    <h1>SAVERIO PUCCIO</h1>
+
+    <p>
+      📍 Gorizia, Udine e provincia —
+      Soluzioni finanziarie su misura per te
+    </p>
+
+    <div class="hero-buttons">
+      <a onclick="callMe()" class="btn btn-call">
+        Chiama
+      </a>
+
+      <a onclick="openWhatsApp()" class="btn btn-wa">
+        WhatsApp
+      </a>
+
+      <a onclick="openFacebook()" class="btn btn-fb">
+        Facebook
+      </a>
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       SERVIZI - CON PIÙ SPAZIO VERSO IL BASSO
+  ========================= -->
+
+  <section id="servizi" class="section">
+
+    <h2>I Miei Servizi</h2>
+
+    <div class="services">
+
+      <div class="card">
+
+        <h3>Mutui</h3>
+
+        <p>
+          Soluzioni personalizzate per l'acquisto della prima e seconda casa.
+          Confronto tra le migliori offerte delle principali banche per trovare
+          il tasso più conveniente.
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <h3>Prestiti</h3>
+
+        <p>
+          Prestiti personali per ogni esigenza: liquidità, acquisti importanti,
+          spese impreviste. Valutazione rapida e accesso alle migliori
+          condizioni di mercato.
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <h3>Cessione del Quinto</h3>
+
+        <p>
+          Finanziamento con trattenuta diretta sulla busta paga o sulla pensione.
+          Ideale per dipendenti pubblici, privati e pensionati.
+          Procedure semplificate e approvazione veloce.
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <h3>Assicurazioni</h3>
+
+        <p>
+          Polizze vita, protezione del credito, assicurazioni sulla casa e
+          prodotti di risparmio. Consulenza indipendente per scegliere la
+          copertura più adatta alle tue esigenze.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       RECENSIONI - CON PIÙ SPAZIO VERSO IL BASSO
+  ========================= -->
+
+  <section id="recensioni" class="section">
+
+    <h2>Recensioni</h2>
+
+    <div class="reviews">
+
+
+      <div class="review">
+
+        <div class="stars">
+          ★★★★★
+        </div>
+
+        <p>
+          "Saverio mi ha aiutato a ottenere il mutuo per la mia prima casa in
+          tempi record. Professionale, disponibile e sempre pronto a spiegare
+          ogni dettaglio. Lo consiglio vivamente!"
+        </p>
+
+        <div class="review-footer">
+
+          <strong>
+            Marco R.
+          </strong>
+
+        </div>
+
+      </div>
+
+
+      <div class="review">
+
+        <div class="stars">
+          ★★★★★
+        </div>
+
+        <p>
+          "Ottimo consulente! Grazie alla sua esperienza ho trovato il prestito
+          personale più conveniente sul mercato. Disponibile anche fuori orario."
+        </p>
+
+        <div class="review-footer">
+
+          <strong>
+            Giulia T.
+          </strong>
+
+        </div>
+
+      </div>
+
+
+      <div class="review">
+
+        <div class="stars">
+          ★★★★★
+        </div>
+
+        <p>
+          "Abbiamo acquistato la nostra casa a Gorizia grazie alla consulenza
+          di Saverio. Ha gestito tutto con grande competenza."
+        </p>
+
+        <div class="review-footer">
+
+          <strong>
+            Roberto e Anna M.
+          </strong>
+
+        </div>
+
+      </div>
+
+
+      <div class="review">
+
+        <div class="stars">
+          ★★★★★
+        </div>
+
+        <p>
+          "Finalmente un consulente chiaro e senza sorprese. La cessione del
+          quinto è stata attivata in pochissimo tempo."
+        </p>
+
+        <div class="review-footer">
+
+          <strong>
+            Francesca L.
+          </strong>
+
+        </div>
+
+      </div>
+
+
+      <div class="review">
+
+        <div class="stars">
+          ★★★★★
+        </div>
+
+        <p>
+          "Ho contattato Saverio per una surroga e il risultato è stato
+          fantastico: ho risparmiato centinaia di euro al mese."
+        </p>
+
+        <div class="review-footer">
+
+          <strong>
+            Stefano B.
+          </strong>
+
+        </div>
+
+      </div>
+
+
+      <div class="review">
+
+        <div class="stars">
+          ★★★★★
+        </div>
+
+        <p>
+          "Cercavo qualcuno di fiducia per le polizze della mia famiglia.
+          Saverio ha trovato la soluzione perfetta."
+        </p>
+
+        <div class="review-footer">
+
+          <strong>
+            Laura P.
+          </strong>
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       CONTATTI - CON PIÙ SPAZIO DALL'ALTO
+  ========================= -->
+
+  <section id="contattami" class="section">
+
+    <h2>Contattami</h2>
+
+    <div class="contact-wrapper">
+
+      <div class="form">
+
+        <form id="form">
+
+          <input id="name" placeholder="Nome *" required>
+
+          <input id="surname" placeholder="Cognome *" required>
+
+          <input id="phone" placeholder="Cellulare *" required>
+
+          <input id="email" placeholder="Email *" required>
+
+          <textarea id="message" placeholder="Messaggio"></textarea>
+
+
+          <label class="privacy">
+
+            <input type="checkbox" id="privacy">
+
+            <span>
+
+              Accetto l'informativa privacy
+
+              <a href="privacy.html" target="_blank">
+
+                Leggi Informativa
+
+              </a>
+
+            </span>
+
+          </label>
+
+
+          <div class="calc-buttons">
+
+            <button type="button" class="btn btn-wa" onclick="sendWhatsApp()">
+
+              Invia su WhatsApp
+
+            </button>
+
+          </div>
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       JAVASCRIPT
+  ========================= -->
+
+  <script>
+    const supabaseUrl =
+      "https://vtojhpjjqnznwkclmedj.supabase.co";
+
+    const supabaseKey =
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ2dG9qaHBqcXFuen53a2NsbWVkaiIsInJlZiI6InZ0b2pocGpqcW56bndrY2xtbWRqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzYzNTM1OTIsImV4cCI6MjA5MTkyOTU5Mn0.gzWiBvGoGc8YB8v4VtYhrwLfCZv-voQ8zD_VnlXJZDE";
+
+    const supabaseClient =
+      supabase.createClient(
+        supabaseUrl,
+        supabaseKey
+      );
+
+
+    /* =========================
+       SCROLL NAVIGAZIONE
+    ========================= */
+
+    function go(id) {
+
+      const el =
+        document.getElementById(id);
+
+      if (!el) return;
+
+      const navItems =
+        document.querySelectorAll(".nav span");
+
+      navItems.forEach(span => {
+        span.classList.remove("active");
       });
-    }
-  
-    else if(id === "contattami"){
-      window.scrollTo({
-        top: document.body.scrollHeight,
-        behavior: "smooth"
-      });
-    }
-  
-    else{
-      const el = document.getElementById(id);
-  
-      let offset = 100;
-  
-      if(id === "servizi"){
-        offset = 50;
+
+      const active =
+        document.querySelector(
+          `.nav span[onclick="go('${id}')"]`
+        );
+
+      if (active) {
+        active.classList.add("active");
       }
-  
-      if(id === "recensioni"){
-        offset = -20;
+
+      if (id === "candidatura") {
+
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+        return;
       }
-  
-      const y = el.getBoundingClientRect().top + window.scrollY - offset;
-  
-      window.scrollTo({
-        top: y,
-        behavior: "smooth"
-      });
+
+      const topbar =
+        document.querySelector(".topbar");
+
+      const offset =
+        topbar ?
+        topbar.offsetHeight :
+        0;
+
+      if (id === "home") {
+
+        const y =
+          el.getBoundingClientRect().top +
+          window.scrollY -
+          offset;
+
+        window.scrollTo({
+          top: Math.max(0, y),
+          behavior: "smooth"
+        });
+      } else if (id === "servizi") {
+
+        const y =
+          el.getBoundingClientRect().top +
+          window.scrollY -
+          offset +
+          20;
+
+        window.scrollTo({
+          top: Math.max(0, y),
+          behavior: "smooth"
+        });
+      } else if (id === "recensioni") {
+
+        const y =
+          el.getBoundingClientRect().top +
+          window.scrollY -
+          offset +
+          10;
+
+        window.scrollTo({
+          top: Math.max(0, y),
+          behavior: "smooth"
+        });
+      } else if (id === "contattami") {
+
+        const footer =
+          document.querySelector(".footer");
+
+        if (footer) {
+
+          const footerBottom =
+            footer.getBoundingClientRect().bottom +
+            window.scrollY;
+
+          const target =
+            footerBottom -
+            window.innerHeight;
+
+          window.scrollTo({
+            top: Math.max(0, target),
+            behavior: "smooth"
+          });
+
+        } else {
+
+          const y =
+            el.getBoundingClientRect().top +
+            window.scrollY -
+            offset +
+            10;
+
+          window.scrollTo({
+            top: Math.max(0, y),
+            behavior: "smooth"
+          });
+        }
+      }
     }
-  
-    // RESET COLORI
-    const navItems = document.querySelectorAll(".nav span");
-    navItems.forEach(span => {
-      span.style.color = "#aaa";
-      span.style.textShadow = "none";
-    });
-  
-    // EFFETTO TEMPORANEO (NON RESTA)
-    const active = document.querySelector(`.nav span[onclick="go('${id}')"]`);
-    
-    if(active){
-      active.style.color = "#f5d76e";
-      active.style.textShadow = "0 0 10px #d4af37";
-  
-      // torna normale dopo 500ms
+
+
+    /* =========================
+       CONTATTI
+    ========================= */
+
+    function callMe() {
+      window.location.href =
+        "tel:3515104896";
+    }
+
+
+    function openWhatsApp() {
+      window.open(
+        "https://wa.me/393515104896",
+        "_blank"
+      );
+    }
+
+
+    async function sendWhatsApp() {
+
+      let name =
+        document.getElementById("name").value;
+
+      let surname =
+        document.getElementById("surname").value;
+
+      let phone =
+        document.getElementById("phone").value;
+
+      let email =
+        document.getElementById("email").value;
+
+      let message =
+        document.getElementById("message").value;
+
+      let privacy =
+        document.getElementById("privacy").checked;
+
+
+      if (
+        name === "" ||
+        surname === "" ||
+        phone === "" ||
+        email === "" ||
+        message === ""
+      ) {
+        alert(
+          "Compila tutti i campi obbligatori"
+        );
+        return;
+      }
+
+
+      if (!privacy) {
+        alert(
+          "Devi accettare la privacy per continuare"
+        );
+        return;
+      }
+
+
+      let ip =
+        await fetch(
+          "https://api.ipify.org?format=json"
+        )
+        .then(r => r.json())
+        .then(d => d.ip);
+
+
+      await supabaseClient
+        .from("contatti")
+        .insert([
+          {
+            name,
+            surname,
+            phone,
+            email,
+            message,
+            consente: true,
+            ip
+          }
+        ]);
+
+
+      let now =
+        new Date();
+
+
+      let text =
+        `Nuova richiesta:
+
+    Nome: ${name}
+    Cognome: ${surname}
+    Telefono: ${phone}
+    Email: ${email}
+    Messaggio: ${message}
+
+    Data: ${now.toLocaleDateString("it-IT")}
+    Ora: ${now.toLocaleTimeString("it-IT")}`;
+
+
+      let url =
+        "https://wa.me/393515104896?text=" +
+        encodeURIComponent(text);
+
+
+      let mailSubject =
+        "Nuova richiesta dal sito - " +
+        name +
+        " " +
+        surname;
+
+
+      let mailBody =
+        `Nome: ${name}
+    Cognome: ${surname}
+    Telefono: ${phone}
+    Email: ${email}
+    Messaggio: ${message}
+
+    Data: ${now.toLocaleDateString("it-IT")}
+    Ora: ${now.toLocaleTimeString("it-IT")}`;
+
+
+      let mailUrl =
+        "mailto:saveriopucciok@gmail.com?subject=" +
+        encodeURIComponent(mailSubject) +
+        "&body=" +
+        encodeURIComponent(mailBody);
+
+
       setTimeout(() => {
-        active.style.color = "#aaa";
-        active.style.textShadow = "none";
-      }, 500);
-    }
-  }
-  
-  function callMe(){
-    window.location.href = "tel:3515104896";
-  }
-  
-  function openWhatsApp(){
-    window.open("https://wa.me/393515104896", "_blank");
-  }
-  
-  async function sendWhatsApp(){
-    
-    let name = document.getElementById("name").value;
-    let surname = document.getElementById("surname").value;
-    let phone = document.getElementById("phone").value;
-    let email = document.getElementById("email").value;
-    let message = document.getElementById("message").value;
-    let privacy = document.getElementById("privacy").checked;
-  
-  if(name === "" || surname === "" || phone === "" || email === "" || message === ""){
-    alert("Compila tutti i campi obbligatori");
-    return;
-  }
-  
-    if(!privacy){
-      alert("Devi accettare la privacy per continuare");
-      return;
-    }
-    
-let ip = await fetch("https://api.ipify.org?format=json")
-  .then(r => r.json())
-  .then(d => d.ip);
-    
-  // 👉 SALVA NEL DATABASE
-    await supabaseClient.from('contatti').insert([
-     { name, surname, phone, email, message, consente: true, ip }
-    ]);
-  
-    // 👉 CREA MESSAGGIO WHATSAPP
-    let now = new Date();
-  
-   let text = `Nuova richiesta:\n
-Nome: ${name}
-Cognome: ${surname}
-Telefono: ${phone}
-Email: ${email}
-Messaggio: ${message}\n
-Data: ${now.toLocaleDateString('it-IT')}
-Ora: ${now.toLocaleTimeString('it-IT')}`;
-  
-    let url = "https://wa.me/393515104896?text=" + encodeURIComponent(text);
-  
-   setTimeout(() => {
-    window.open(url, "_blank");
-  }, 100);
-    
-  // reset
-  document.getElementById("form").reset();
-  
-  }
 
-    function openFacebook(){
-  window.open("https://it-it.facebook.com/saveriopuccio2000", "_blank");
-}
-  
-  </script> <footer class="footer"> <span>© 2026 Saverio Puccio - P.IVA 01279950313</span> </footer> </body> </html>
-  
-  
-  
-  
+        window.open(
+          url,
+          "_blank"
+        );
+
+      }, 100);
+
+
+      setTimeout(() => {
+
+        window.location.href =
+          mailUrl;
+
+      }, 300);
+
+
+      document
+        .getElementById("form")
+        .reset();
+
+    }
+
+
+    function openFacebook() {
+      window.open(
+        "https://it-it.facebook.com/saveriopuccio2000",
+        "_blank"
+      );
+    }
+
+
+    /* =========================
+       CANDIDATURA GUIDATA
+    ========================= */
+
+    const candidaturaFlow = {
+
+      start: {
+
+        question: "Ciao! Sono l'assistente di Saverio 👋 Quale servizio ti interessa?",
+
+        field: "servizio",
+
+        options: [
+          "Mutuo",
+          "Prestito Personale",
+          "Cessione del Quinto",
+          "Assicurazione"
+        ],
+
+        next: (v) =>
+          v === "Mutuo" ?
+          "mutuo_importo" :
+          v === "Prestito Personale" ?
+          "prestito_importo" :
+          v === "Cessione del Quinto" ?
+          "cessione_importo" :
+          "assicurazione_tipo"
+
+      },
+
+
+      mutuo_importo: {
+
+        question: "Perfetto, parliamo di un mutuo. Di quale importo hai bisogno?",
+
+        field: "importo",
+
+        options: [
+          "Meno di 50.000€",
+          "50.000€ - 100.000€",
+          "100.000€ - 150.000€",
+          "Oltre 150.000€"
+        ],
+
+        next: () =>
+          "mutuo_prodotto"
+
+      },
+
+
+      mutuo_prodotto: {
+
+        question: "Quale prodotto preferisci?",
+
+        field: "prodotto",
+
+        options: [
+          "Tasso Fisso",
+          "Tasso Variabile",
+          "Misto"
+        ],
+
+        next: () =>
+          "mutuo_percentuale"
+
+      },
+
+
+      mutuo_percentuale: {
+
+        question: "Quale percentuale di mutuo ti serve rispetto al valore dell'immobile?",
+
+        field: "percentuale",
+
+        options: [
+          "100%",
+          "80%",
+          "Meno dell'80%"
+        ],
+
+        next: () =>
+          "mutuo_durata"
+
+      },
+
+
+      mutuo_durata: {
+
+        question: "Per quanti anni vorresti restituirlo?",
+
+        field: "durata",
+
+        options: [
+          "Oltre 30 anni",
+          "30 anni",
+          "25 anni",
+          "Meno di 25 anni"
+        ],
+
+        next: () =>
+          "result"
+
+      },
+
+
+      prestito_importo: {
+
+        question: "Ok, un prestito personale. Di quale importo hai bisogno?",
+
+        field: "importo",
+
+        options: [
+          "Meno di 10.000€",
+          "10.000€",
+          "15.000€",
+          "Oltre 15.000€"
+        ],
+
+        next: () =>
+          "prestito_durata"
+
+      },
+
+
+      prestito_durata: {
+
+        question: "In quanti anni vorresti restituirlo?",
+
+        field: "durata",
+
+        options: [
+          "5 anni",
+          "7 anni",
+          "10 anni"
+        ],
+
+        next: () =>
+          "result"
+
+      },
+
+
+      cessione_importo: {
+
+        question: "Ok, una cessione del quinto. Di quale importo hai bisogno?",
+
+        field: "importo",
+
+        options: [
+          "Meno di 10.000€",
+          "10.000€",
+          "15.000€",
+          "Oltre 15.000€"
+        ],
+
+        next: () =>
+          "cessione_durata"
+
+      },
+
+
+      cessione_durata: {
+
+        question: "In quanti anni vorresti restituirla?",
+
+        field: "durata",
+
+        options: [
+          "5 anni",
+          "7 anni",
+          "10 anni"
+        ],
+
+        next: () =>
+          "result"
+
+      },
+
+
+      assicurazione_tipo: {
+
+        question: "Quale tipo di assicurazione ti interessa?",
+
+        field: "tipoAssicurazione",
+
+        options: [
+          "Scoppio e Incendio",
+          "Vita",
+          "Infortuni",
+          "Perdita del Lavoro",
+          "Malattia"
+        ],
+
+        next: () =>
+          "result"
+
+      }
+
+    };
+
+
+    let candStep = "start";
+
+    let candData = {};
+
+    let candStepCount = 0;
+
+
+    function candMaxSteps() {
+
+      if (candData.servizio === "Mutuo")
+        return 5;
+
+      if (
+        candData.servizio === "Prestito Personale" ||
+        candData.servizio === "Cessione del Quinto"
+      )
+        return 3;
+
+      if (candData.servizio === "Assicurazione")
+        return 2;
+
+      return 5;
+
+    }
+
+
+    function renderCandStep() {
+
+      const step =
+        candidaturaFlow[candStep];
+
+
+      document
+        .getElementById("chatQuestion")
+        .innerText =
+        step.question;
+
+
+      const optionsBox =
+        document.getElementById("chatOptions");
+
+
+      optionsBox.innerHTML = "";
+
+
+      step.options.forEach(opt => {
+
+        const btn =
+          document.createElement("button");
+
+        btn.type = "button";
+
+        btn.innerText = opt;
+
+        btn.onclick = () =>
+          answerCandStep(step, opt);
+
+        optionsBox.appendChild(btn);
+
+      });
+
+
+      renderCandProgress();
+
+    }
+
+
+    function renderCandProgress() {
+
+      const total =
+        candMaxSteps();
+
+      const progress =
+        document.getElementById("chatProgress");
+
+      progress.innerHTML = "";
+
+
+      for (let i = 0; i < total; i++) {
+
+        const dot =
+          document.createElement("span");
+
+        if (i < candStepCount)
+          dot.classList.add("done");
+
+        progress.appendChild(dot);
+
+      }
+
+    }
+
+
+    function answerCandStep(step, value) {
+
+      candData[step.field] =
+        value;
+
+      candStepCount++;
+
+      const nextKey =
+        step.next(value);
+
+      candStep =
+        nextKey;
+
+
+      if (nextKey === "result") {
+
+        showCandResult();
+
+      } else {
+
+        renderCandStep();
+
+      }
+
+    }
+
+
+    function parseImportoMedio(label) {
+
+      if (label.includes("Meno di 50"))
+        return 40000;
+
+      if (label.includes("50.000€ - 100.000€"))
+        return 75000;
+
+      if (label.includes("100.000€ - 150.000€"))
+        return 125000;
+
+      if (label.includes("Oltre 150.000€"))
+        return 170000;
+
+      if (label.includes("Meno di 10"))
+        return 7500;
+
+      if (label === "10.000€")
+        return 10000;
+
+      if (label === "15.000€")
+        return 15000;
+
+      if (label.includes("Oltre 15.000€"))
+        return 18000;
+
+      return 0;
+
+    }
+
+
+    function parseAnniMutuo(label) {
+
+      if (label.includes("Oltre 30"))
+        return 35;
+
+      if (label === "30 anni")
+        return 30;
+
+      if (label === "25 anni")
+        return 25;
+
+      if (label.includes("Meno di 25"))
+        return 20;
+
+      return 25;
+
+    }
+
+
+    function parseAnniBreve(label) {
+
+      if (label === "5 anni")
+        return 5;
+
+      if (label === "7 anni")
+        return 7;
+
+      if (label === "10 anni")
+        return 10;
+
+      return 5;
+
+    }
+
+
+    function calcolaRata(
+      importo,
+      tassoAnnuo,
+      anni
+    ) {
+
+      const n =
+        anni * 12;
+
+      const tassoMensile =
+        tassoAnnuo / 100 / 12;
+
+      const rata =
+        importo *
+        tassoMensile /
+        (
+          1 -
+          Math.pow(
+            1 + tassoMensile,
+            -n
+          )
+        );
+
+      return Math.round(rata);
+
+    }
+
+
+    // Genera il riepilogo delle risposte
+    function generaRiepilogoRisposte() {
+
+      let msg = "";
+
+      if (candData.servizio === "Mutuo") {
+
+        msg = `
+    Richiesta MUTUO
+
+    Importo: ${candData.importo || "Non specificato"}
+    Prodotto: ${candData.prodotto || "Non specificato"}
+    Percentuale finanziata: ${candData.percentuale || "Non specificata"}
+    Durata: ${candData.durata || "Non specificata"}`;
+
+      } else if (candData.servizio === "Prestito Personale") {
+
+        msg = `
+    Richiesta PRESTITO PERSONALE
+
+    Importo: ${candData.importo || "Non specificato"}
+    Durata: ${candData.durata || "Non specificata"}`;
+
+      } else if (candData.servizio === "Cessione del Quinto") {
+
+        msg = `
+    Richiesta CESSIONE DEL QUINTO
+
+    Importo: ${candData.importo || "Non specificato"}
+    Durata: ${candData.durata || "Non specificata"}`;
+
+      } else if (candData.servizio === "Assicurazione") {
+
+        msg = `
+    Richiesta ASSICURAZIONE
+
+    Tipo: ${candData.tipoAssicurazione || "Non specificato"}`;
+
+      }
+
+      return msg.trim();
+
+    }
+
+
+    function showCandResult() {
+
+      const risultatoArea =
+        document.getElementById("risultatoArea");
+
+
+      // NASCONDI il bubble e le opzioni
+      document
+        .getElementById("chatBubble")
+        .classList.add("hidden");
+
+      document
+        .getElementById("chatProgress")
+        .classList.add("hidden");
+
+      document
+        .getElementById("chatOptions")
+        .classList.add("hidden");
+
+
+      // Genera il messaggio con le risposte
+      const riepilogoMsg = generaRiepilogoRisposte();
+
+
+      // MOSTRA IL "?"
+      let html = `
+
+        <div class="risultato-box">
+
+          <div class="tasso" style="font-size:3em;">
+
+            ?
+
+          </div>
+
+          <div class="dettaglio" style="font-size:13px; color:#cfd6e6;">
+
+            Invia la candidatura per conoscere<br>
+            la tua rata mensile personalizzata
+
+          </div>
+
+        </div>
+
+      `;
+
+
+      risultatoArea.innerHTML =
+        html;
+
+
+      // Mostra il form a due colonne (o mobile)
+      const isMobile = window.innerWidth <= 650;
+
+      if (isMobile) {
+        document
+          .getElementById("finalFormMobile")
+          .style.display = "block";
+        document
+          .getElementById("consulenzaTwoCol")
+          .style.display = "none";
+        document
+          .getElementById("sendRow")
+          .style.display = "none";
+
+        document
+          .getElementById("candMessageM")
+          .value = riepilogoMsg;
+
+      } else {
+        document
+          .getElementById("consulenzaTwoCol")
+          .style.display = "flex";
+        document
+          .getElementById("finalFormMobile")
+          .style.display = "none";
+        document
+          .getElementById("sendRow")
+          .style.display = "flex";
+
+        document
+          .getElementById("candMessage")
+          .value = riepilogoMsg;
+      }
+
+
+      document
+        .getElementById("chatRestartBtn")
+        .style.display = "block";
+
+    }
+
+
+    // Funzione che mostra la rata DOPO l'invio (sostituisce il "?")
+    function mostraRataDopoInvio() {
+
+      const risultatoArea =
+        document.getElementById("risultatoArea");
+
+      let html = "";
+
+      if (candData.servizio === "Mutuo") {
+
+        const tasso = 3.5;
+
+        const anni =
+          parseAnniMutuo(
+            candData.durata
+          );
+
+        const importo =
+          parseImportoMedio(
+            candData.importo
+          );
+
+        const rata =
+          calcolaRata(
+            importo,
+            tasso,
+            anni
+          );
+
+
+        html = `
+
+          <div class="risultato-box">
+
+            <div class="tasso">
+
+              € ${rata.toLocaleString()}
+
+              <span>
+
+                /mese
+
+              </span>
+
+            </div>
+
+            <div class="dettaglio">
+
+              Rata mensile indicativa
+              (${candData.prodotto})
+
+              <br>
+
+              Importo:
+              ${candData.importo}
+
+              ·
+
+              Finanziamento:
+              ${candData.percentuale}
+
+              ·
+
+              Durata:
+              ${candData.durata}
+
+            </div>
+
+          </div>
+
+        `;
+
+      } else if (
+        candData.servizio === "Prestito Personale" ||
+        candData.servizio === "Cessione del Quinto"
+      ) {
+
+        const tasso =
+          candData.servizio === "Prestito Personale" ?
+          13 :
+          10;
+
+
+        const importo =
+          parseImportoMedio(
+            candData.importo
+          );
+
+
+        const anni =
+          parseAnniBreve(
+            candData.durata
+          );
+
+
+        const rata =
+          calcolaRata(
+            importo,
+            tasso,
+            anni
+          );
+
+
+        const nomeServizio =
+          candData.servizio === "Prestito Personale" ?
+          "PRESTITO PERSONALE" :
+          "CESSIONE DEL QUINTO";
+
+
+        html = `
+
+          <div class="risultato-box">
+
+            <div class="tasso">
+
+              € ${rata.toLocaleString()}
+
+              <span>
+
+                /mese
+
+              </span>
+
+            </div>
+
+            <div class="dettaglio">
+
+              Rata mensile indicativa
+
+              <br>
+
+              Importo:
+              ${candData.importo}
+
+              ·
+
+              Durata:
+              ${candData.durata}
+
+            </div>
+
+          </div>
+
+        `;
+
+      } else if (
+        candData.servizio === "Assicurazione"
+      ) {
+
+        html = `
+
+          <div class="risultato-box">
+
+            <div class="dettaglio" style="font-size:14px;">
+
+              Sei interessato a una polizza:
+
+              <strong style="color:#f5d76e;">
+
+                ${candData.tipoAssicurazione}
+
+              </strong>
+
+              <br>
+
+              Ti ricontatterò con una proposta su misura.
+
+            </div>
+
+          </div>
+
+        `;
+
+      }
+
+
+      risultatoArea.innerHTML = html;
+
+    }
+
+
+    function restartCandidatura() {
+
+      candStep = "start";
+
+      candData = {};
+
+      candStepCount = 0;
+
+
+      // Rimuovi la classe hidden da bubble e opzioni
+      document
+        .getElementById("chatBubble")
+        .classList.remove("hidden");
+
+      document
+        .getElementById("chatProgress")
+        .classList.remove("hidden");
+
+      document
+        .getElementById("chatOptions")
+        .classList.remove("hidden");
+
+
+      document
+        .getElementById("risultatoArea")
+        .innerHTML = "";
+
+
+      document
+        .getElementById("consulenzaTwoCol")
+        .style.display = "none";
+
+
+      document
+        .getElementById("finalFormMobile")
+        .style.display = "none";
+
+
+      document
+        .getElementById("sendRow")
+        .style.display = "none";
+
+
+      document
+        .getElementById("chatRestartBtn")
+        .style.display = "none";
+
+
+      // Reset campi versione desktop
+      document
+        .getElementById("candName")
+        .value = "";
+
+      document
+        .getElementById("candSurname")
+        .value = "";
+
+      document
+        .getElementById("candPhone")
+        .value = "";
+
+      document
+        .getElementById("candEmail")
+        .value = "";
+
+      document
+        .getElementById("candMessage")
+        .value = "";
+
+      document
+        .getElementById("candPrivacy")
+        .checked = false;
+
+
+      // Reset campi versione mobile
+      document
+        .getElementById("candNameM")
+        .value = "";
+
+      document
+        .getElementById("candSurnameM")
+        .value = "";
+
+      document
+        .getElementById("candPhoneM")
+        .value = "";
+
+      document
+        .getElementById("candEmailM")
+        .value = "";
+
+      document
+        .getElementById("candMessageM")
+        .value = "";
+
+      document
+        .getElementById("candPrivacyM")
+        .checked = false;
+
+
+      document
+        .getElementById("chatQuestion")
+        .innerText =
+        "Ciao! Sono l'assistente di Saverio 👋 Quale servizio ti interessa?";
+
+
+      renderCandStep();
+
+    }
+
+
+    async function sendCandidatura() {
+
+      let name =
+        document.getElementById("candName").value;
+
+      let surname =
+        document.getElementById("candSurname").value;
+
+      let phone =
+        document.getElementById("candPhone").value;
+
+      let email =
+        document.getElementById("candEmail").value;
+
+      // Il messaggio è già stato compilato automaticamente
+      let message =
+        document.getElementById("candMessage").value;
+
+      let privacy =
+        document.getElementById("candPrivacy").checked;
+
+
+      if (
+        name === "" ||
+        surname === "" ||
+        phone === "" ||
+        email === ""
+      ) {
+        alert(
+          "Compila tutti i campi obbligatori"
+        );
+        return;
+      }
+
+
+      if (!privacy) {
+        alert(
+          "Devi accettare la privacy per continuare"
+        );
+        return;
+      }
+
+
+      let ip =
+        await fetch(
+          "https://api.ipify.org?format=json"
+        )
+        .then(r => r.json())
+        .then(d => d.ip);
+
+
+      await supabaseClient
+        .from("contatti")
+        .insert([
+          {
+            name,
+            surname,
+            phone,
+            email,
+            message,
+            consente: true,
+            ip
+          }
+        ]);
+
+
+      let now =
+        new Date();
+
+
+      let text =
+        `Nuova richiesta (Candidatura guidata):
+
+    Nome: ${name}
+    Cognome: ${surname}
+    Telefono: ${phone}
+    Email: ${email}
+    Messaggio: ${message}
+
+    Data: ${now.toLocaleDateString("it-IT")}
+    Ora: ${now.toLocaleTimeString("it-IT")}`;
+
+
+      let url =
+        "https://wa.me/393515104896?text=" +
+        encodeURIComponent(text);
+
+
+      let mailSubject =
+        "Nuova richiesta (Candidatura guidata) - " +
+        name +
+        " " +
+        surname;
+
+
+      let mailBody =
+        `Nome: ${name}
+    Cognome: ${surname}
+    Telefono: ${phone}
+    Email: ${email}
+    Messaggio: ${message}
+
+    Data: ${now.toLocaleDateString("it-IT")}
+    Ora: ${now.toLocaleTimeString("it-IT")}`;
+
+
+      let mailUrl =
+        "mailto:saveriopucciok@gmail.com?subject=" +
+        encodeURIComponent(mailSubject) +
+        "&body=" +
+        encodeURIComponent(mailBody);
+
+
+      setTimeout(() => {
+
+        window.open(
+          url,
+          "_blank"
+        );
+
+      }, 100);
+
+
+      setTimeout(() => {
+
+        window.location.href =
+          mailUrl;
+
+      }, 300);
+
+
+      // MOSTRA LA RATA DOPO L'INVIO (sostituisce il "?")
+      mostraRataDopoInvio();
+
+      // SVUOTA TUTTO IL FORM
+      document.getElementById("candName").value = "";
+      document.getElementById("candSurname").value = "";
+      document.getElementById("candPhone").value = "";
+      document.getElementById("candEmail").value = "";
+      document.getElementById("candMessage").value = "";
+      document.getElementById("candPrivacy").checked = false;
+
+    }
+
+
+    async function sendCandidaturaMobile() {
+
+      let name =
+        document.getElementById("candNameM").value;
+
+      let surname =
+        document.getElementById("candSurnameM").value;
+
+      let phone =
+        document.getElementById("candPhoneM").value;
+
+      let email =
+        document.getElementById("candEmailM").value;
+
+      let message =
+        document.getElementById("candMessageM").value;
+
+      let privacy =
+        document.getElementById("candPrivacyM").checked;
+
+
+      if (
+        name === "" ||
+        surname === "" ||
+        phone === "" ||
+        email === ""
+      ) {
+        alert(
+          "Compila tutti i campi obbligatori"
+        );
+        return;
+      }
+
+
+      if (!privacy) {
+        alert(
+          "Devi accettare la privacy per continuare"
+        );
+        return;
+      }
+
+
+      let ip =
+        await fetch(
+          "https://api.ipify.org?format=json"
+        )
+        .then(r => r.json())
+        .then(d => d.ip);
+
+
+      await supabaseClient
+        .from("contatti")
+        .insert([
+          {
+            name,
+            surname,
+            phone,
+            email,
+            message,
+            consente: true,
+            ip
+          }
+        ]);
+
+
+      let now =
+        new Date();
+
+
+      let text =
+        `Nuova richiesta (Candidatura guidata):
+
+    Nome: ${name}
+    Cognome: ${surname}
+    Telefono: ${phone}
+    Email: ${email}
+    Messaggio: ${message}
+
+    Data: ${now.toLocaleDateString("it-IT")}
+    Ora: ${now.toLocaleTimeString("it-IT")}`;
+
+
+      let url =
+        "https://wa.me/393515104896?text=" +
+        encodeURIComponent(text);
+
+
+      let mailSubject =
+        "Nuova richiesta (Candidatura guidata) - " +
+        name +
+        " " +
+        surname;
+
+
+      let mailBody =
+        `Nome: ${name}
+    Cognome: ${surname}
+    Telefono: ${phone}
+    Email: ${email}
+    Messaggio: ${message}
+
+    Data: ${now.toLocaleDateString("it-IT")}
+    Ora: ${now.toLocaleTimeString("it-IT")}`;
+
+
+      let mailUrl =
+        "mailto:saveriopucciok@gmail.com?subject=" +
+        encodeURIComponent(mailSubject) +
+        "&body=" +
+        encodeURIComponent(mailBody);
+
+
+      setTimeout(() => {
+
+        window.open(
+          url,
+          "_blank"
+        );
+
+      }, 100);
+
+
+      setTimeout(() => {
+
+        window.location.href =
+          mailUrl;
+
+      }, 300);
+
+
+      // MOSTRA LA RATA DOPO L'INVIO (sostituisce il "?")
+      mostraRataDopoInvio();
+
+      // SVUOTA TUTTO IL FORM
+      document.getElementById("candNameM").value = "";
+      document.getElementById("candSurnameM").value = "";
+      document.getElementById("candPhoneM").value = "";
+      document.getElementById("candEmailM").value = "";
+      document.getElementById("candMessageM").value = "";
+      document.getElementById("candPrivacyM").checked = false;
+
+    }
+
+
+    /* =========================
+       AVVIO
+    ========================= */
+
+    document.addEventListener(
+      "DOMContentLoaded",
+      function() {
+
+        renderCandStep();
+
+        // Gestione resize per switch tra desktop e mobile
+        window.addEventListener("resize", function() {
+          const isMobile = window.innerWidth <= 650;
+          const twoCol = document.getElementById("consulenzaTwoCol");
+          const mobileForm = document.getElementById("finalFormMobile");
+          const sendRow = document.getElementById("sendRow");
+
+          if (twoCol.style.display !== "none" && twoCol.style.display !== "") {
+            if (isMobile) {
+              twoCol.style.display = "none";
+              mobileForm.style.display = "block";
+              sendRow.style.display = "none";
+              // Copia i valori
+              document.getElementById("candNameM").value = document.getElementById("candName").value;
+              document.getElementById("candSurnameM").value = document.getElementById("candSurname").value;
+              document.getElementById("candPhoneM").value = document.getElementById("candPhone").value;
+              document.getElementById("candEmailM").value = document.getElementById("candEmail").value;
+              document.getElementById("candMessageM").value = document.getElementById("candMessage").value;
+            }
+          } else if (mobileForm.style.display !== "none" && mobileForm.style.display !== "") {
+            if (!isMobile) {
+              mobileForm.style.display = "none";
+              twoCol.style.display = "flex";
+              sendRow.style.display = "flex";
+              // Copia i valori
+              document.getElementById("candName").value = document.getElementById("candNameM").value;
+              document.getElementById("candSurname").value = document.getElementById("candSurnameM").value;
+              document.getElementById("candPhone").value = document.getElementById("candPhoneM").value;
+              document.getElementById("candEmail").value = document.getElementById("candEmailM").value;
+              document.getElementById("candMessage").value = document.getElementById("candMessageM").value;
+            }
+          }
+        });
+
+      }
+    );
+  </script>
+
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
+
+  <footer class="footer">
+
+    <span>
+
+      © 2026 Saverio Puccio - P.IVA 01279950313
+
+    </span>
+
+  </footer>
+
+
+</body>
+
+</html>
